@@ -1,0 +1,51 @@
+﻿@model ledsangviet_chuongnh.Models.About
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=922924954482922";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Footer -->
+<footer class="footer text-right">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-xl-7">
+            @if (Model != null)
+            {
+                <strong>@Model.Name</strong><br>
+                <span> Địa chỉ: @Model.Address</span> <br>
+                <span>Email: @Model.Email</span> <br>
+                <span>Hotline: @Model.Hotline</span> <br>
+                <span>Website: <a href="@Model.Website">@Model.Website</a></span><br>
+                <span>Facebook page: <a href="@Model.Fanpage">@Model.Fanpage</a></span>
+            }
+        </div>
+        <div class="col-xs-12 col-lg-12 col-xl-5">
+            <div class="thumb" style="margin-top: 0px">
+                <div class="fb-page thumb-img" data-href="https://www.facebook.com/rigenled.lighting/" data-tabs="timeline" data-width="1000" data-height="100" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/rigenled.lighting/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/rigenled.lighting/">Rigen Led Lighting</a></blockquote></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-xl-7">
+            <hr />
+            <span>&copy;@DateTime.Now.Year <a href="https://www.facebook.com/chuongnhxx">Nguyen Hoang Chuong</a></span>
+        </div>
+        <div class="col-xs-12 col-lg-12 col-xl-5">
+            <hr />
+            <div class="pull-right">
+                <a href="/Home">Trang chủ</a> |
+                <a href="/About">Giới thiệu</a> |
+                <a href="/News">Tin tức</a> |
+                <a href="/Contact">Tư vấn</a> |
+                <a href="/Contact">Hệ thống phân phối</a> |
+                <a href="/Contact">Liên hệ</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->

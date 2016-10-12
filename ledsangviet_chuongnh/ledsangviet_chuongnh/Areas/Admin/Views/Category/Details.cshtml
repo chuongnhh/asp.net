@@ -1,0 +1,48 @@
+﻿@model ledsangviet_chuongnh.Models.Category
+
+@{
+    ViewBag.Title = "Chi tiết loại sản phẩm| Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section PageTitle{
+    Chi tiết loại sản phẩm
+}
+
+<div class="card-box">
+
+    <div>
+        <h4>Category</h4>
+        <hr />
+        <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Trở lại danh sách", "Index")
+    </p>
+
+</div>

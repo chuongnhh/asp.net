@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Trang chủ | LED";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (List<ledsangviet_chuongnh.Models.Category>)ViewBag.Category;
+    var product = (List<ledsangviet_chuongnh.Models.Product>)ViewBag.Product;
+    var slide = (List<ledsangviet_chuongnh.Models.Slide>)ViewBag.Slide;
+    var news = (List<ledsangviet_chuongnh.Models.News>)ViewBag.News;
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-lg-12 col-xl-8">
+        <div class="card">
+            <!-- START carousel-->
+            <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                    @if (slide.Count() > 0)
+                    {
+                    <li data-target="#carousel-example-captions-1" data-slide-to="0" class="active"></li>
+                    }
+                    @for (int i = 1; i < slide.Count(); i++)
+                    {
+                    <li data-target="#carousel-example-captions-1" data-slide-to="@i"></li>
+                    }
+                </ol>
+                <div role="listbox" class="carousel-inner">
+                    @if (slide.Count() > 0)
+                    {
+                    <div class="carousel-item active">
+                        <img src="@slide[0].Image" alt="@slide[0].Image">
+                    </div>
+                    }
+                    @for (int i = 1; i < slide.Count(); i++)
+                    {
+                    <div class="carousel-item">
+                        <img src="@slide[i].Image" alt="@slide[i].Name">
+                    </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div><!-- end col-->
+    <div class="col-xs-12 col-lg-12 col-xl-4">
+        <div class="card-box">
+            <h4 class="header-title m-t-0 m-b-20">Tin tức</h4>
+            <div class="blog-widget nicescroll" style="height: 407px">
+                @foreach (var n in news)
+                {
+                    <a href="/News/Detail/@n.Id">
+                        <div class="blog-item">
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
+                            <p class="blog-item-title">@n.Title.Substring(0, 35)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, 80)...</p>
+                            <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div><!-- end col-->
+</div>
+<!-- end row -->
+
+@foreach (var c in category)
+{
+    <div class="row">
+        <h4 class="page-title">@c.Name</h4><hr>
+        @foreach (var p in c.Products)
+        {
+            <div class="portfolioContainer">
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumb">
+                        <a href="/Product/Detail/@p.Id" class="image-popup" title="Screenshot-1">
+                            <img src="@p.Image" class="thumb-img" alt="work-thumbnail">
+                        </a>
+                        <div class="gal-detail text-xs">
+                            <h4 class="m-t-10"><a href="/Product/Detail/@p.Id">@p.Name</a></h4>
+                            <p class="text-muted">
+                                Giá sản phẩm: <strong>@p.Price VNĐ</strong><br>
+                                Chip led: <strong>@p.ChipLed</strong><br>
+                                Bảo hành: @p.Guarantee<br>
+                                Hãng sản xuất: <strong>@p.Manufacturer</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+<br>

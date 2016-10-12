@@ -1,0 +1,96 @@
+﻿@model ledsangviet_chuongnh.Models.About
+
+@{
+    ViewBag.Title = "Xóa thông tin giới thiệu | Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section PageTitle{
+    Xóa thông tin giới thiệu
+}
+
+<div class="card-box">
+
+    <h3>Bạn có chắc chắn là muốn xóa không?</h3>
+    <div>
+        <h4>About</h4>
+        <hr />
+        <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Hotline)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hotline)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Website)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fanpage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fanpage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-primary" /> |
+                @Html.ActionLink("Trở về danh sách", "Index")
+            </div>
+        }
+    </div>
+
+</div>

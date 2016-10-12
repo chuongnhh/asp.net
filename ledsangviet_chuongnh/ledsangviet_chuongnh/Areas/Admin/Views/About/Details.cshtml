@@ -1,0 +1,89 @@
+﻿@model ledsangviet_chuongnh.Models.About
+
+@{
+    ViewBag.Title = "Chi tiết thông tin giới thiệu | Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section PageTitle{
+    Chi tiết thông tin giới thiệu
+}
+
+<div class="card-box">
+
+    <div>
+        <h4>About</h4>
+        <hr />
+        <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Hotline)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hotline)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Website)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fanpage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fanpage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </p>
+
+</div>

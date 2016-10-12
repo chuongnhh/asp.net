@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ledsangviet_chuongnh.Models.Slide>
+
+@{
+    ViewBag.Title = "Danh sách slide | Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section PageTitle{
+    Danh sách slide
+}
+
+<div class="card-box">
+
+    <p>
+        @Html.ActionLink("Tạo mới slide", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Xem", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

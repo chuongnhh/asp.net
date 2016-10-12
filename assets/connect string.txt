@@ -1,0 +1,8 @@
+112.78.2.68,1433
+ledc64c8_led
+
+ledc64c8_sa
+
+Qbzh592^
+
+<add name = "ledsangviet" connectionString="data source= .; initial catalog = ledc64c8_leduser id = ledc64c8_sa; password = Qbzh592^; MultipleActiveResultSets=True; App=EntityFramework" providerName="System.Data.SqlClient" />

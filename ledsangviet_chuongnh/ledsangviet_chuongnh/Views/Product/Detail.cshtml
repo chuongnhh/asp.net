@@ -1,0 +1,107 @@
+﻿@model ledsangviet_chuongnh.Models.Product
+@{
+    ViewBag.Title = "Chi tiết sản phẩm | LED";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var productRelate = (List<ledsangviet_chuongnh.Models.Product>)ViewBag.productRelate;
+}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card-box">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-12 col-xl-6">
+                        <div class="thumb">
+                            <img src="/Assets/images/gallery/2.jpg" class="thumb-img">
+                        </div>
+                    </div><!-- end col -->
+                    <div class="col-xs-12 col-lg-12 col-xl-6">
+
+                        <div class="pull-xs-left" style="margin-top: 15px">
+                            <address>
+                                <strong><h4>@Model.Name</h4></strong><hr>
+                                <strong>MÃ SẢN PHẨM : </strong>@Model.Code<br>
+                                <strong>GIÁ SẢN PHẨM : </strong>@Model.Price<br>
+                                <strong>CHIP LED : </strong>@Model.ChipLed<br>
+                                <strong>BẢO HÀNH : </strong>@Model.Guarantee<br>
+                                <span>@Html.Raw(Model.Note)</span>
+                            </address>
+
+                        </div>
+                    </div><!-- end col -->
+                </div>
+                <!-- end row -->
+                <br>
+                <div style="padding-bottom:5px">@Html.Raw(Model.Description)</div>
+                <h4>Các giá trị thông số</h4>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Thông số</th>
+                            <th>Giá trị</th>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Chip led</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- end row -->
+<!-- product relative-->
+
+<h4>Sản phẩm liên quan</h4>
+<div class="row">
+    @foreach (var p in productRelate)
+    {
+        <div class="portfolioContainer">
+            <div class="col-sm-6 col-md-3">
+                <div class="thumb">
+                    <a href="/Product/Detail/@p.Id" class="image-popup" title="Screenshot-1">
+                        <img src="@p.Image" class="thumb-img" alt="work-thumbnail">
+                    </a>
+                    <div class="gal-detail text-xs">
+                        <h4 class="m-t-10"><a href="/Product/Detail/@p.Id">@p.Name</a></h4>
+                        <p class="text-muted">
+                            Giá sản phẩm: <strong>@p.Price</strong><br>
+                            Chip led: <strong>@p.ChipLed</strong><br>
+                            Bảo hành: @p.Guarantee<br>
+                            Hãng sản xuất: <strong>@p.Manufacturer</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- / product relative-->
+<br>
+

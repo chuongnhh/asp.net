@@ -1,0 +1,118 @@
+﻿@model ledsangviet_chuongnh.Models.Product
+
+@{
+    ViewBag.Title = "Xóa sản phẩm | Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section PageTitle{
+    Xóa sản phẩm
+}
+
+<div class="card-box">
+    <h3>Bạn có chắc chắn là muốn xóa không?</h3>
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChipLed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChipLed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Guarantee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Guarantee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Design)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Design)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Application)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Application)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Manufacturer)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-primary" /> |
+                @Html.ActionLink("Trở về danh sách", "Index")
+            </div>
+        }
+    </div>
+
+</div>

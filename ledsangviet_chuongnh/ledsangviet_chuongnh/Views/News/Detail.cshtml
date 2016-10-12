@@ -1,0 +1,55 @@
+﻿@model ledsangviet_chuongnh.Models.News
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var news = (List<ledsangviet_chuongnh.Models.News>)ViewBag.News;
+}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+
+        <h4 class="page-title">Tin tức</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-lg-12 col-xl-9">
+        <div class="row">
+            <div class="card-box">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h3>@Model.Title</h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <p class="pull-md-right pull-lg-right">@Model.CreateDate.ToShortDateString()</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:20px">
+                    <p>@Model.CreateBy</p>
+                </div>
+                <hr />
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-12 col-xl-3">
+        <div class="card-box">
+            <h4 class="header-title m-t-0 m-b-20">Tin mới nhất</h4>
+            <div class="blog-widget nicescroll">
+                @foreach (var n in news)
+                {
+                    <a href="/News/Detail/@n.Id">
+                        <div class="blog-item">
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
+                            <p class="blog-item-title">@n.Title.Substring(0,35)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, 100)...</p>
+                            <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->

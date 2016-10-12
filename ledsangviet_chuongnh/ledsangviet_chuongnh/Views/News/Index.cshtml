@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Tin tức | LED";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var news = (List<ledsangviet_chuongnh.Models.News>)ViewBag.News;
+}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+
+        <h4 class="page-title">Tin tức</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-lg-12 col-xl-9">
+        <div class="row">
+            @foreach (var n in news)
+            {
+            <div class="col-sm-6 col-lg-4 col-xs-12">
+
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title"><a href="/News/Detail/@n.Id">@n.Title</a></h5>
+                        <a href="#" class="card-subtitle text-muted"><i class="zmdi zmdi-accounts-alt"></i> @n.CreateBy</a>
+                    </div>
+                    <a href="#"><img class="img-fluid" src="@n.Image" alt="Card image cap"></a>
+
+                    <div class="card-block">
+                        <p class="card-text">@n.Description</p>
+                        <a href="/News/Detail/@n.Id" class="card-link">Xem chi tiết...</a>
+                    </div>
+                </div>
+            </div><!-- end col -->
+            }
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-12 col-xl-3">
+        <div class="card-box">
+
+            <h4 class="header-title m-t-0 m-b-20">Tin mới nhất</h4>
+
+            <div class="blog-widget nicescroll">
+                @foreach (var n in news)
+                {
+                    <a href="/News/Details/@n.Id">
+                        <div class="blog-item">
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
+                            <p class="blog-item-title">@n.Title.Substring(0, 35)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, 100)...</p>
+                            <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
