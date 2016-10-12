@@ -11,10 +11,14 @@ namespace ledsangviet_chuongnh.Models
     [Table("About")]
     public class About
     {
+        public About()
+        {
+
+        }
         [Key]
         public int Id { get; set; }
 
-        [Display(Name ="Tên công ty")]
+        [Display(Name = "Tên công ty")]
         [StringLength(100)]
         public string Name { get; set; }
 
@@ -46,5 +50,8 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Hình ảnh công ty")]
         [StringLength(250)]
         public string Image { get; set; }
+
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
     }
 }

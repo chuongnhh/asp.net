@@ -13,9 +13,13 @@ namespace ledsangviet_chuongnh.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name ="Tên slide")]
+        [Display(Name = "Tên slide")]
         [StringLength(250)]
         public string Name { get; set; }
+
+        [Display(Name = "Mô tả")]
+        [StringLength(100)]
+        public string Description { get; set; }
 
         [Display(Name = "Ảnh")]
         [StringLength(250)]
@@ -24,5 +28,15 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Link")]
         [StringLength(250)]
         public string Link { get; set; }
+
+        [Display(Name = "Thứ tự hiện thị")]
+        public int DisplayOrder { get; set; }
+
+        [Display(Name = "Ngày khởi tạo")]
+        public DateTime CreateDate { get; set; }
+
+        [Display(Name = "Người khởi tạo")]
+        public string CreateBy { get; set; }
+
     }
 }

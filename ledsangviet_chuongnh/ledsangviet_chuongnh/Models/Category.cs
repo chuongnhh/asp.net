@@ -14,6 +14,11 @@ namespace ledsangviet_chuongnh.Models
         public Category()
         {
             Products = new List<Product>();
+            CreateDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+            ShowOnHome = false;
+            Status = true;
+            DisplayOrder = 1;
         }
 
         [Key]
@@ -31,6 +36,47 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Hình ảnh")]
         [StringLength(250)]
         public string Image { get; set; }
+
+        [Display(Name = "Hiện thị trên trang chủ")]
+        public bool ShowOnHome { get; set; }
+
+        [Display(Name ="Thứ tự hiện thị")]
+        public int DisplayOrder { get; set; }
+
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
+
+        //============================================
+        // seo suport
+        [Display(Name = "Meta title")]
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
+
+        [Display(Name = "Seo title")]
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
+
+        [Display(Name = "Meta keywords")]
+        [StringLength(250)]
+        public string MetaKeywords { get; set; }
+
+        // author
+        [Display(Name = "Ngày khởi tạo")]
+        [DataType(DataType.DateTime)]
+        public DateTime CreateDate { get; set; }
+
+        [Display(Name = "Người khởi tạo")]
+        [StringLength(100)]
+        public string CreateBy { get; set; }
+
+        [Display(Name = "Ngày chỉnh sửa")]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        [Display(Name = "Người chỉnh sửa")]
+        [StringLength(100)]
+        public string ModifiedBy { get; set; }
+        //============================================
 
         public virtual List<Product> Products { get; set; }
     }

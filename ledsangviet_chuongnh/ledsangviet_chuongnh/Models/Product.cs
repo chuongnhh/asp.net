@@ -13,7 +13,11 @@ namespace ledsangviet_chuongnh.Models
     {
         public Product()
         {
-
+            CreateDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+            ShowOnHome = false;
+            Status = true;
+            DisplayOrder = 1;
         }
         [Key]
         public int Id { get; set; }
@@ -36,7 +40,7 @@ namespace ledsangviet_chuongnh.Models
 
         [Display(Name = "Bảo hành")]
         [StringLength(50)]
-        public string Guarantee { get; set; }
+        public string Waranty { get; set; }
 
         [AllowHtml]
         [Display(Name = "Mô tả")]
@@ -56,12 +60,51 @@ namespace ledsangviet_chuongnh.Models
         [StringLength(100)]
         public string Manufacturer { get; set; }
 
-        [Display(Name = "Hiện lên trang chủ")]
+        [Display(Name = "Hiện thị trên trang chủ")]
         public bool ShowOnHome { get; set; }
+
+        [Display(Name = "Thứ tự hiện thị")]
+        public int DisplayOrder { get; set; }
+
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
+
 
         [Display(Name = "Mã loại sản phẩm")]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
+
+        //============================================
+        // seo suport
+        [Display(Name = "Meta title")]
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
+
+        [Display(Name = "Seo title")]
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
+
+        [Display(Name = "Meta keywords")]
+        [StringLength(250)]
+        public string MetaKeywords { get; set; }
+
+        // author
+        [Display(Name = "Ngày khởi tạo")]
+        [DataType(DataType.DateTime)]
+        public DateTime CreateDate { get; set; }
+
+        [Display(Name = "Người khởi tạo")]
+        [StringLength(100)]
+        public string CreateBy { get; set; }
+
+        [Display(Name = "Ngày chỉnh sửa")]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        [Display(Name = "Người chỉnh sửa")]
+        [StringLength(100)]
+        public string ModifiedBy { get; set; }
+        //============================================
 
         public virtual Category Category { get; set; }
     }
