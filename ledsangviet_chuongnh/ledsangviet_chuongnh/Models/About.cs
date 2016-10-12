@@ -13,7 +13,8 @@ namespace ledsangviet_chuongnh.Models
     {
         public About()
         {
-
+            CreateDate = DateTime.Now;
+            Status = false;
         }
         [Key]
         public int Id { get; set; }

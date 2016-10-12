@@ -5,4 +5,4 @@ ledc64c8_sa
 
 Qbzh592^
 
-<add name = "ledsangviet" connectionString="data source= .; initial catalog = ledc64c8_leduser id = ledc64c8_sa; password = Qbzh592^; MultipleActiveResultSets=True; App=EntityFramework" providerName="System.Data.SqlClient" />
+<add name = "ledsangviet" connectionString="data source= .; initial catalog = ledc64c8_led; user id = ledc64c8_sa; password = Qbzh592^; MultipleActiveResultSets=True; App=EntityFramework" providerName="System.Data.SqlClient" />

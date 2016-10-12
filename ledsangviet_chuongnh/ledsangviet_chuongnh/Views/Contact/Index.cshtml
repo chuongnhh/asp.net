@@ -34,7 +34,6 @@
                             @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
                             {
                                 <fieldset class="form-group">
-                                    <label for="txtName">Họ tên (*)</label>
                                     @Html.LabelFor(model => model.Name)
                                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @placeholder = "Nhập họ tên của bạn" })
                                 </fieldset>
