@@ -15,6 +15,7 @@ namespace ledsangviet_chuongnh.Models
         {
             CreateDate = DateTime.Now;
             ModifiedDate = DateTime.Now;
+            DisplayOrder = 1;
         }
         [Key]
         public int Id { get; set; }
@@ -51,5 +52,8 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Hình ảnh")]
         [StringLength(250)]
         public string Image { get; set; }
+
+        [Display(Name ="Thứ tự hiện thị")]
+        public int DisplayOrder { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace ledsangviet_chuongnh.Models
 
         [Display(Name = "Mật khẩu")]
         [DataType(DataType.Password)]
+        [Required]
         public string Password { get; set; }
 
         [Display(Name = "Địa chỉ email")]

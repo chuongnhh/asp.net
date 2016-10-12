@@ -53,5 +53,13 @@ namespace ledsangviet_chuongnh.Models
 
         [Display(Name = "Trạng thái")]
         public bool Status { get; set; }
+
+        [Display(Name="Ngày khởi tạo")]
+        [DataType(DataType.DateTime)]
+        public DateTime CreateDate { get; set; }
+
+        [Display(Name = "Người khởi tạo")]
+        [StringLength(100)]
+        public string CreateBy { get; set; }
     }
 }

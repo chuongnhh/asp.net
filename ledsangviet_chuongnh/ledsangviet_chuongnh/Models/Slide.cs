@@ -10,6 +10,10 @@ namespace ledsangviet_chuongnh.Models
     [Table("Slide")]
     public class Slide
     {
+        public Slide()
+        {
+            DisplayOrder = 1;
+        }
         [Key]
         public int Id { get; set; }
 
