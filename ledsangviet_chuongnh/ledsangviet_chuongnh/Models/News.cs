@@ -14,8 +14,8 @@ namespace ledsangviet_chuongnh.Models
         public News()
         {
             CreateDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
             DisplayOrder = 1;
+            ShowOnHome = false;
         }
         [Key]
         public int Id { get; set; }
@@ -37,23 +37,36 @@ namespace ledsangviet_chuongnh.Models
         [DataType(DataType.DateTime)]
         public DateTime CreateDate { get; set; }
 
-        [Display(Name = "Ngày sửa")]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
-
         [Display(Name = "Người đăng")]
         [StringLength(50)]
         public string CreateBy { get; set; }
-
-        [Display(Name = "Người sửa")]
-        [StringLength(50)]
-        public string ModifiedBy { get; set; }
 
         [Display(Name = "Hình ảnh")]
         [StringLength(250)]
         public string Image { get; set; }
 
+        [Display(Name = "Hiện thị trên trang chủ")]
+        public bool ShowOnHome { get; set; }
+
         [Display(Name ="Thứ tự hiện thị")]
         public int DisplayOrder { get; set; }
+
+        // seo suport
+        [Display(Name = "Meta title")]
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
+
+        [Display(Name = "Seo title")]
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
+
+        [Display(Name = "Meta keywords")]
+        [StringLength(250)]
+        public string MetaKeywords { get; set; }
+
+
+        [Display(Name = "Meta description")]
+        [StringLength(250)]
+        public string MetaDescription { get; set; }
     }
 }

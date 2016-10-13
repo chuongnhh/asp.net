@@ -43,5 +43,8 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Người khởi tạo")]
         public string CreateBy { get; set; }
 
+        [Display(Name = "Hiện thị trên trang chủ")]
+        public bool ShowOnHome { get; set; }
+
     }
 }

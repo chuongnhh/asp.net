@@ -15,9 +15,7 @@ namespace ledsangviet_chuongnh.Models
         {
             Products = new List<Product>();
             CreateDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
             ShowOnHome = false;
-            Status = true;
             DisplayOrder = 1;
         }
 
@@ -42,9 +40,6 @@ namespace ledsangviet_chuongnh.Models
 
         [Display(Name ="Thứ tự hiện thị")]
         public int DisplayOrder { get; set; }
-
-        [Display(Name = "Trạng thái")]
-        public bool Status { get; set; }
 
         //============================================
         // seo suport
@@ -73,14 +68,6 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Người khởi tạo")]
         [StringLength(100)]
         public string CreateBy { get; set; }
-
-        [Display(Name = "Ngày chỉnh sửa")]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
-
-        [Display(Name = "Người chỉnh sửa")]
-        [StringLength(100)]
-        public string ModifiedBy { get; set; }
         //============================================
 
         public virtual List<Product> Products { get; set; }

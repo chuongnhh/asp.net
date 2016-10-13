@@ -14,10 +14,25 @@ namespace ledsangviet_chuongnh.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Category = db.Categories.ToList<Category>();
-            ViewBag.Slide = db.Slides.ToList<Slide>();
-            ViewBag.Product = db.Products.ToList<Product>();
-            ViewBag.News = db.News.ToList<News>();
+            ViewBag.Category = db.Categories
+                .Where(x=>x.ShowOnHome==true)
+                .OrderBy(x=>x.DisplayOrder)
+                .ToList<Category>();
+
+            ViewBag.Slide = db.Slides
+                .Where(x => x.ShowOnHome == true)
+                .OrderBy(x => x.DisplayOrder)
+                .ToList<Slide>();
+
+            ViewBag.Product = db.Products
+                .Where(x => x.ShowOnHome == true)
+                .OrderBy(x => x.DisplayOrder)
+                .ToList<Product>();
+
+            ViewBag.News = db.News
+                .Where(x => x.ShowOnHome == true)
+                .OrderBy(x => x.DisplayOrder)
+                .ToList<News>();
 
             // seo
             ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"].ToString();

@@ -29,10 +29,12 @@ namespace ledsangviet_chuongnh.Common
             message.Body = body;
 
             var client = new SmtpClient();
+            client.EnableSsl = enabledSsl;
+            client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(fromEmailAddress, fromEmailPassword);
             client.Host = smtpHost;
-            client.EnableSsl = enabledSsl;
             client.Port = !string.IsNullOrEmpty(smtpPort) ? Convert.ToInt32(smtpPort) : 0;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.Send(message);
             return true;
         }

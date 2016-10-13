@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ledsangviet_chuongnh.Models;
+using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
@@ -47,10 +48,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description,Image")] Category category)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description,Image,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Category category)
         {
             if (ModelState.IsValid)
             {
+                category.MetaTitle = StringHelper.ToUnsignString(category.Name);
                 db.Categories.Add(category);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -79,10 +81,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Image")] Category category)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Image,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Category category)
         {
             if (ModelState.IsValid)
             {
+                category.MetaTitle = StringHelper.ToUnsignString(category.Name);
                 db.Entry(category).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

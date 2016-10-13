@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ledsangviet_chuongnh.Models;
+using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
@@ -49,10 +50,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Code,Name,Price,ChipLed,Guarantee,Description,Note,Image,Manufacturer,CategoryId")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Code,Name,Price,ChipLed,Waranty,Description,Note,Image,Manufacturer,CategoryId,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.MetaTitle = StringHelper.ToUnsignString(product.Name);
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -83,10 +85,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Code,Name,Price,ChipLed,Guarantee,Description,Note,Image,Manufacturer,CategoryId")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Code,Name,Price,ChipLed,Waranty,Description,Note,Image,Manufacturer,CategoryId,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Product product)
         {
             if (ModelState.IsValid)
             {
+                product.MetaTitle = StringHelper.ToUnsignString(product.Name);
                 db.Entry(product).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

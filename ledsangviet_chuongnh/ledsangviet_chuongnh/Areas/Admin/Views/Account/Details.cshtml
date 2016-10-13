@@ -15,6 +15,12 @@
         <hr />
         <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
             <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+            <dt>
                 @Html.DisplayNameFor(model => model.Password)
             </dt>
 
@@ -29,7 +35,12 @@
             <dd>
                 @Html.DisplayFor(model => model.Email)
             </dd>
-
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CreateDate)
+            </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>

@@ -14,16 +14,14 @@ namespace ledsangviet_chuongnh.Models
         public Product()
         {
             CreateDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
             ShowOnHome = false;
-            Status = true;
             DisplayOrder = 1;
         }
         [Key]
         public int Id { get; set; }
 
         [Display(Name = "Mã sản phẩm")]
-        [StringLength(10)]
+        [StringLength(20)]
         public string Code { get; set; }
 
         [Display(Name = "Tên sản phẩm")]
@@ -31,7 +29,7 @@ namespace ledsangviet_chuongnh.Models
         public string Name { get; set; }
 
         [Display(Name = "Giá bán")]
-        [DataType(DataType.Currency)]
+        [StringLength(100)]
         public string Price { get; set; }
 
         [Display(Name = "Chip Led")]
@@ -66,10 +64,6 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Thứ tự hiện thị")]
         public int DisplayOrder { get; set; }
 
-        [Display(Name = "Trạng thái")]
-        public bool Status { get; set; }
-
-
         [Display(Name = "Mã loại sản phẩm")]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
@@ -100,14 +94,6 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Người khởi tạo")]
         [StringLength(100)]
         public string CreateBy { get; set; }
-
-        [Display(Name = "Ngày chỉnh sửa")]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
-
-        [Display(Name = "Người chỉnh sửa")]
-        [StringLength(100)]
-        public string ModifiedBy { get; set; }
         //============================================
 
         public virtual Category Category { get; set; }

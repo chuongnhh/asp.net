@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ledsangviet_chuongnh.Models;
+using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
@@ -47,10 +48,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Content,CreateDate,ModifiedDate,CreateBy,ModifiedBy,Image")] News news)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Content,Image,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy,ShowOnHome")] News news)
         {
             if (ModelState.IsValid)
             {
+                news.MetaTitle = StringHelper.ToUnsignString(news.Title);
                 db.News.Add(news);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -79,10 +81,11 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,Content,CreateDate,ModifiedDate,CreateBy,ModifiedBy,Image")] News news)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,Content,Image,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy,ShowOnHome")] News news)
         {
             if (ModelState.IsValid)
             {
+                news.MetaTitle = StringHelper.ToUnsignString(news.Title);
                 db.Entry(news).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

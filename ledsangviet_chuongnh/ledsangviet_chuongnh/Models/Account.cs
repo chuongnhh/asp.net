@@ -10,7 +10,12 @@ namespace ledsangviet_chuongnh.Models
     [Table("Account")]
     public class Account
     {
-        [Display(Name="Tên tài khoản")]
+        public Account()
+        {
+            CreateDate = DateTime.Now;
+        }
+
+        [Display(Name = "Tên tài khoản")]
         [Key]
         public string Username { get; set; }
 
@@ -42,5 +47,9 @@ namespace ledsangviet_chuongnh.Models
         [Display(Name = "Ảnh đại diện")]
         [StringLength(250)]
         public string Image { get; set; }
+
+        [Display(Name = "Ngày khởi tạo")]
+        [DataType(DataType.DateTime)]
+        public DateTime CreateDate { get; set; }
     }
 }

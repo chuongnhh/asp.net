@@ -48,7 +48,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Username,Password,Email,Name,Birthday,Gender,Address,Image")] Account account)
+        public async Task<ActionResult> Create([Bind(Include = "Username,Password,Email,Name,Birthday,Gender,Address,Image,CreateDate")] Account account)
         {
             if (ModelState.IsValid)
             {
@@ -81,11 +81,14 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Username,Password,Email,Name,Birthday,Gender,Address,Image")] Account account)
+        public async Task<ActionResult> Edit([Bind(Include = "Username,Password,Email,Name,Birthday,Gender,Address,Image,CreateDate")] Account account)
         {
             if (ModelState.IsValid)
             {
+                //var ac = db.Accounts.Find(account.Username);
+                //if (account.Password == ac.Password)// khac moi ma hoa
                 account.Password = Encryptor.MD5Hash(account.Password);
+
                 db.Entry(account).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
