@@ -60,6 +60,11 @@ namespace ledsangviet_chuongnh.Models
         [StringLength(250)]
         public string MetaKeywords { get; set; }
 
+
+        [Display(Name = "Meta description")]
+        [StringLength(250)]
+        public string MetaDescription { get; set; }
+
         // author
         [Display(Name = "Ngày khởi tạo")]
         [DataType(DataType.DateTime)]

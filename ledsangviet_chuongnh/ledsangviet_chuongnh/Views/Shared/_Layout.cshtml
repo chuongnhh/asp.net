@@ -12,16 +12,12 @@
 
     <!-- App title -->
     <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.Keyword"/>
+    <meta name="description" content="@ViewBag.Description" />
 
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="/Assets/plugins/morris/morris.css">
-
-    <!-- Switchery css -->
-    <link href="/Assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
-
-    <!-- App CSS -->
+    @Styles.Render("~/bundles/css");
     <link href="/Assets/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/Assets/css/site.css" rel="stylesheet" />
+
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,29 +51,8 @@
 
         </div> <!-- container -->
     </div> <!-- End wrapper -->
-    <!-- jQuery  -->
-    <script src="/Assets/js/jquery.min.js"></script>
-    <script src="/Assets/js/tether.min.js"></script><!-- Tether for Bootstrap -->
-    <script src="/Assets/js/bootstrap.min.js"></script>
-    <script src="/Assets/js/waves.js"></script>
-    <script src="/Assets/js/jquery.nicescroll.js"></script>
-    <script src="/Assets/plugins/switchery/switchery.min.js"></script>
 
-    <!--Morris Chart-->
-    <script src="/Assets/plugins/morris/morris.min.js"></script>
-    <script src="/Assets/plugins/raphael/raphael-min.js"></script>
-
-    <!-- Counter Up  -->
-    <script src="/Assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
-    <script src="/Assets/plugins/counterup/jquery.counterup.min.js"></script>
-
-    <!-- App js -->
-    <script src="/Assets/js/jquery.core.js"></script>
-    <script src="/Assets/js/jquery.app.js"></script>
-
-    <!-- Page specific js -->
-    <script src="/Assets/pages/jquery.dashboard.js"></script>
-    <script src="/Assets/js/site.js"></script>
+    @Scripts.Render("~/bundles/js");
     <div id='bttop'>Lên đầu trang</div>
 </body>
 

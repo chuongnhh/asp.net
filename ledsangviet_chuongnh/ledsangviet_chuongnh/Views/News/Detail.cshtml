@@ -39,9 +39,9 @@
             <div class="blog-widget nicescroll">
                 @foreach (var n in news)
                 {
-                    <a href="/News/Detail/@n.Id">
+                    <a href="/News/Detail/@n.Id" title="@n.Title">
                         <div class="blog-item">
-                            <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt="@n.Title"></div>
                             <p class="blog-item-title">@n.Title.Substring(0,35)...</p>
                             <p class="blog-item-text">@n.Description.Substring(0, 100)...</p>
                             <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>

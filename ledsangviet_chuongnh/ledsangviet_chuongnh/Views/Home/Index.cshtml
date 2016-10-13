@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Trang chủ | LED";
+    //ViewBag.Title = "Trang chủ | LED";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (List<ledsangviet_chuongnh.Models.Category>)ViewBag.Category;
     var product = (List<ledsangviet_chuongnh.Models.Product>)ViewBag.Product;
@@ -47,9 +47,9 @@
             <div class="blog-widget nicescroll" style="height: 407px">
                 @foreach (var n in news)
                 {
-                    <a href="/News/Detail/@n.Id">
+                    <a href="/News/Detail/@n.Id" title="@n.Title">
                         <div class="blog-item">
-                            <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt="@n.Title"></div>
                             <p class="blog-item-title">@n.Title.Substring(0, 35)...</p>
                             <p class="blog-item-text">@n.Description.Substring(0, 80)...</p>
                             <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
@@ -71,11 +71,11 @@
             <div class="portfolioContainer">
                 <div class="col-sm-6 col-md-3">
                     <div class="thumb">
-                        <a href="/Product/Detail/@p.Id" class="image-popup" title="Screenshot-1">
-                            <img src="@p.Image" class="thumb-img" alt="work-thumbnail">
+                        <a href="/Product/Detail/@p.Id" class="image-popup" title="@p.Name">
+                            <img src="@p.Image" class="thumb-img" alt="@p.Name">
                         </a>
                         <div class="gal-detail text-xs">
-                            <h4 class="m-t-10"><a href="/Product/Detail/@p.Id">@p.Name</a></h4>
+                            <h4 class="m-t-10"><a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a></h4>
                             <p class="text-muted">
                                 Giá sản phẩm: <strong>@p.Price VNĐ</strong><br>
                                 Chip led: <strong>@p.ChipLed</strong><br>

@@ -19,6 +19,7 @@ namespace ledsangviet_chuongnh
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "ledsangviet_chuongnh.Controllers" }
             );
+
         }
     }
 }

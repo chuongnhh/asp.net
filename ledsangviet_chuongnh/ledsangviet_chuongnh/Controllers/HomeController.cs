@@ -1,6 +1,7 @@
 ﻿using ledsangviet_chuongnh.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,6 +19,10 @@ namespace ledsangviet_chuongnh.Controllers
             ViewBag.Product = db.Products.ToList<Product>();
             ViewBag.News = db.News.ToList<News>();
 
+            // seo
+            ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"].ToString();
+            ViewBag.Keyword = ConfigurationManager.AppSettings["HomeKeyword"].ToString();
+            ViewBag.Description = ConfigurationManager.AppSettings["HomeDescription"].ToString();
             return View();
         }
 

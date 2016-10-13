@@ -1,6 +1,9 @@
 ﻿@model ledsangviet_chuongnh.Models.Category
 @{
-    ViewBag.Title = "Loại sản phẩm | LED";
+    ViewBag.Title = Model.Name;
+    ViewBag.Keyword = Model.MetaKeywords;
+    ViewBag.Description = Model.MetaDescription;
+
     Layout = "~/Views/Shared/_Layout.cshtml";
     var productRelate = (List<ledsangviet_chuongnh.Models.Product>)ViewBag.ProductRelate;
 }
@@ -29,7 +32,7 @@
                     </div><!-- end col -->
                     <div class="col-xs-12 col-lg-12 col-xl-6">
                         <div class="thumb">
-                            <img src="@Model.Image" class="thumb-img">
+                            <img src="@Model.Image" class="thumb-img" alt="@Model.Name">
                         </div>
                     </div><!-- end col -->
                 </div>
@@ -47,8 +50,8 @@
         <div class="portfolioContainer">
             <div class="col-sm-6 col-md-3">
                 <div class="thumb">
-                    <a href="/Product/Detail/@p.Id" class="image-popup" title="Screenshot-1">
-                        <img src="@p.Image" class="thumb-img" alt="work-thumbnail">
+                    <a href="/Product/Detail/@p.Id" class="image-popup" title="@p.Name">
+                        <img src="@p.Image" class="thumb-img" alt="@p.Name">
                     </a>
                     <div class="gal-detail text-xs">
                         <h4 class="m-t-10"><a href="/Product/Detail/@p.Id">@p.Name</a></h4>
