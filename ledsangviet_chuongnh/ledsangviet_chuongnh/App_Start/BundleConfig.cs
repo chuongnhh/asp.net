@@ -10,38 +10,46 @@ namespace ledsangviet_chuongnh.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // client
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                          //Morris Chart CSS
-                         "~/Assets/plugins/morris/morris.css",
+                         "~/Assets/Client/plugins/morris/morris.css",
                          //<!-- Switchery css -->
-                         "~/Assets/plugins/switchery/switchery.min.css",
+                         "~/Assets/Client/plugins/switchery/switchery.min.css",
                          // <!-- App CSS -->
                          //"~/Assets/css/style.css",
-                         "~/Assets/css/site.css"
+                         "~/Assets/Client/css/site.css"
                          ));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                          // jquery 
-                         "~/Assets/js/jquery.min.js",
-                         "~/Assets/js/tether.min.js",
-                         "~/Assets/js/bootstrap.min.js",
-                         "~/Assets/js/waves.js",
-                         "~/Assets/js/jquery.nicescroll.js",
-                         "~/Assets/plugins/switchery/switchery.min.js",
+                         "~/Assets/Client/js/jquery.min.js",
+                         "~/Assets/Client/js/tether.min.js",
+                         "~/Assets/Client/js/bootstrap.min.js",
+                         "~/Assets/Client/js/waves.js",
+                         "~/Assets/Client/js/jquery.nicescroll.js",
+                         "~/Assets/Client/plugins/switchery/switchery.min.js",
                          // Morris Chart
-                         "~/Assets/plugins/morris/morris.min.js",
-                         "~/Assets/plugins/raphael/raphael-min.js",
+                         "~/Assets/Client/plugins/morris/morris.min.js",
+                         "~/Assets/Client/plugins/raphael/raphael-min.js",
                          // Counter Up
-                         "~/Assets/plugins/waypoints/lib/jquery.waypoints.js",
-                         "~/Assets/plugins/counterup/jquery.counterup.min.js",
+                         "~/Assets/Client/plugins/waypoints/lib/jquery.waypoints.js",
+                         "~/Assets/Client/plugins/counterup/jquery.counterup.min.js",
                          // App js
-                         "~/Assets/js/jquery.core.js",
-                         "~/Assets/js/jquery.app.js",
+                         "~/Assets/Client/js/jquery.core.js",
+                         "~/Assets/Client/js/jquery.app.js",
 
                          //Page specific js
-                         //"~/Assets/pages/jquery.dashboard.js",
-                         "~/Assets/js/site.js"
+                         //"~/Assets/Client/pages/jquery.dashboard.js",
+                         "~/Assets/Client/js/site.js"
                          ));
+
+            // admin
+            bundles.Add(new StyleBundle("~/bundles/admin/css").Include(
+                        // Switchery css
+                        //"~/Assets/Admin/plugins/switchery/switchery.min.css",
+                        "~/Assets/Admin/css/site.css"
+                        ));
 
             // Code removed for clarity.
             BundleTable.EnableOptimizations = true;

@@ -13,6 +13,7 @@ namespace ledsangviet_chuongnh.Models
         public Slide()
         {
             DisplayOrder = 1;
+            CreateDate = DateTime.Now;
         }
         [Key]
         public int Id { get; set; }

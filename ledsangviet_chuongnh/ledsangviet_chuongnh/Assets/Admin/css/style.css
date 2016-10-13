@@ -3009,7 +3009,7 @@ input[type="button"].btn-block {
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 0.25rem;
+    border-radius: 0;
 }
 
 .dropdown-divider {
@@ -6420,9 +6420,9 @@ body {
 
 .card-box {
     padding: 20px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
     background-clip: padding-box;
     margin-bottom: 20px;
     background-color: #ffffff;
@@ -30454,7 +30454,7 @@ div.hopscotch-bubble {
     .wrapper-page .account-bg {
         background-color: #ffffff;
         padding: 7px;
-        border-radius: 8px;
+        border-radius: 0px;
         margin: 20px 15px;
     }
 

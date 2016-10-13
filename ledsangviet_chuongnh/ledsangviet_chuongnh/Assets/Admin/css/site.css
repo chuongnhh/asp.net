@@ -1,0 +1,16 @@
+﻿.topbar-left-custom {
+    background-color: #2b3d51 !important;
+    /*border-right: #666666 solid 5px;*/
+}
+
+    .topbar-left-custom i, span {
+    }
+
+.side-menu-custom {
+    background-color: #D1D1D1 !important;
+}
+
+.menu-title-custom {
+    color: #4D7C8C !important;
+    font-weight:bold !important;
+}
