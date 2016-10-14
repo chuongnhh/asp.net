@@ -28,15 +28,22 @@
                         <div class="carousel-item active">
                             <img src="@slide[0].Image" alt="@slide[0].Image">
                         </div>
+                        <div class="carousel-caption">
+                            <h3 class="text-white font-600">@slide[0].Name</h3>
+                            <p>@slide[0].Description</p>
+                        </div>
                     }
                     @for (int i = 1; i < slide.Count(); i++)
                     {
                         <div class="carousel-item">
                             <img src="@slide[i].Image" alt="@slide[i].Name">
                         </div>
+                        <div class="carousel-caption">
+                            <h3 class="text-white font-600">@slide[i].Name</h3>
+                            <p>@slide[i].Description</p>
+                        </div>
                     }
                 </div>
-
             </div>
         </div>
     </div><!-- end col-->

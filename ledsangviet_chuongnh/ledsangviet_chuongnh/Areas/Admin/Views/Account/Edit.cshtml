@@ -8,6 +8,18 @@
 @section PageTitle{
     Chỉnh sửa người dùng
 }
+@section cssHeader{
+    <!-- Plugins css -->
+    <link href="/Assets/Admin/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="/Assets/Admin/plugins/mjolnic-bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="/Assets/Admin/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="/Assets/Admin/plugins/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
+    <link href="/Assets/Admin/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <link href="/Assets/Admin/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/Assets/Admin/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/Admin/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+}
 @section jsFooter{
     <script>
         $(document).ready(function () {
@@ -21,93 +33,109 @@
             })
         })
     </script>
+
+    <script src="/Assets/Admin/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/plugins/multiselect/js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+    <script src="/Assets/Admin/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="/Assets/Admin/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+
+    <!-- Autocomplete -->
+    <script type="text/javascript" src="/Assets/Admin/plugins/autocomplete/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/plugins/autocomplete/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="/AssetsAdmin//plugins/autocomplete/countries.js"></script>
+    <script type="text/javascript" src="/Assets/Admin/pages/jquery.autocomplete.init.js"></script>
+
+    <script type="text/javascript" src="/Assets/Admin/pages/jquery.formadvanced.init.js"></script>
 }
 <div class="card-box">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>Account</h4>
-            <hr />
+        <div class="col-sm-12 col-xs-12">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @type = "text", placeholder = "Nhập tên tài khoản", @readonly = "true" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Nhập tên tài khoản" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Nhập mật khẩu" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Nhập địa chỉ email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Nhập họ và tên người dùng" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.Birthday, new { @type = "text", @class = "form-control", @placeholder = "mm/dd/yyyy", id = "datepicker-autoclose" })
+                            @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
 
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Nhập mật khẩu" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @{
+                                var gender = new List<string> { "Nữ", "Khác" };
+                            }
 
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Nhập địa chỉ email" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(gender), "Nam", new { @class = "form-control select2" })
 
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Nhập họ và tên người dùng" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
 
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Birthday, new { @type = "text", @class = "form-control", @placeholder = "mm/dd/yyyy", id = "datepicker-autoclose" })
-                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(model => model.Address, new { @class = "form-control", @type = "text", id = "textarea", @maxlength = "250", @rows = "2", @placeholder = "Nhập địa chỉ của người dùng" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
 
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @{
-                        var gender = new List<string> { "Nữ", "Khác" };
-                    }
-
-                    @Html.DropDownListFor(model => model.Gender, new SelectList(gender), "Nam", new { @class = "c-select" })
-
-                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.Address, new { @class = "form-control", @type = "text", @placeholder = "Nhập địa chỉ của người dùng" })
-                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage", @type = "text", @placeholder = "Đường dẫn ảnh đại diện { bấm nút chọn bên dưới}" })
-                    <a href="#" id="selectimage">Chọn ảnh</a>
-                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage", @type = "text", @placeholder = "Đường dẫn ảnh đại diện { bấm nút chọn bên dưới}" })
+                            <a href="#" id="selectimage">Chọn ảnh</a>
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
             </div>
+
+            <fieldset class="form-group pull-right">
+                <div class="col-md-12">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                </div>
+            </fieldset>
         </div>
-                        }
+                                }
 
     <div>
         @Html.ActionLink("Trở về danh sách", "Index")

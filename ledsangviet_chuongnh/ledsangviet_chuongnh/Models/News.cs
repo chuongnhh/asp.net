@@ -20,7 +20,7 @@ namespace ledsangviet_chuongnh.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Tiêu đề")]
+        [Display(Name = "Tiêu đề bài viết")]
         [StringLength(250)]
         public string Title { get; set; }
 
@@ -29,7 +29,7 @@ namespace ledsangviet_chuongnh.Models
         public string Description { get; set; }
 
         [AllowHtml]
-        [Display(Name = "Nội dung")]
+        [Display(Name = "Nội dung bài viết")]
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 

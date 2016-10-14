@@ -27,7 +27,7 @@ namespace ledsangviet_chuongnh.Models
         public string Name { get; set; }
 
         [AllowHtml]
-        [Display(Name = "Mô tả")]
+        [Display(Name = "Mô tả chi tiết")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 

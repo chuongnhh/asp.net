@@ -13,12 +13,8 @@
     <!-- App title -->
     <title>@ViewBag.Title</title>
 
-    <!-- Plugins css -->
-    <link href="/Assets/Admin/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-    <link href="/Assets/Admin/plugins/mjolnic-bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
-    <link href="/Assets/Admin/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link href="/Assets/Admin/plugins/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
-    <link href="/Assets/Admin/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    @RenderSection("cssHeader", required: false)
 
     <!-- Switchery css -->
     <link href="/Assets/Admin/plugins/switchery/switchery.min.css" rel="stylesheet" />
@@ -43,13 +39,23 @@
             <!-- Start content -->
             <div class="content">
                 <div class="container">
-
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="page-title-box">
                                 <h4 class="page-title">
                                     @RenderSection("PageTitle")
                                 </h4>
+                                <ol class="breadcrumb p-0">
+                                    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+                                    {
+                                        @Html.ActionLink("Trang chủ", "Index", "Home")
+                                        <li class="active">@ViewBag.Title / </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="active">Trang chủ</li>
+                                    }
+                                </ol>
                                 <div class="clearfix"></div>
                             </div>
                             @RenderBody()

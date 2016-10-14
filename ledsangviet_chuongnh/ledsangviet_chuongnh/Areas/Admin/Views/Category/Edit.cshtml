@@ -25,78 +25,74 @@
     </script>
 }
 <div class="card-box">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên loại sản phẩm" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.DisplayOrder, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.ShowOnHome, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            <label class="c-input c-checkbox">
+                                @Html.CheckBoxFor(model => model.ShowOnHome, new { @class = "c-input c-checkbox", @type = "checkbox" })
+                                <span class="c-indicator"></span>
+                                Check để hiện sản phẩm lên trang chủ
+                            </label>
 
-        <div class="form-horizontal">
-            <h4>Category</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Id)
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên loại sản phẩm" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.ShowOnHome, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta keywords { dùng để hỗ trợ seo}" } })
+                            @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.MetaDescription, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MetaDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta description { dùng để hỗ trợ seo}" } })
+                            @Html.ValidationMessageFor(model => model.MetaDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage" })
+                            <a href="#" id="selectimage">Chọn ảnh</a>
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.ShowOnHome, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <label class="c-input c-checkbox">
-                        @Html.CheckBoxFor(model => model.ShowOnHome, new { @class = "c-input c-checkbox", @type = "checkbox" })
-                        <span class="c-indicator"></span>
-                        Check để hiện sản phẩm lên trang chủ
-                    </label>
-
-                    @Html.ValidationMessageFor(model => model.ShowOnHome, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.DisplayOrder, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta keywords { dùng để hỗ trợ seo}" } })
-                    @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.MetaDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MetaDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta description { dùng để hỗ trợ seo}" } })
-                    @Html.ValidationMessageFor(model => model.MetaDescription, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage" })
-                    <a href="#" id="selectimage">Chọn ảnh</a>
-                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+            </div>
+            <fieldset class="form-group pull-right">
+                <div class="col-md-12">
                     <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
                 </div>
             </fieldset>
@@ -104,7 +100,7 @@
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Trở về danh sách", "Index")
     </div>
 
 </div>

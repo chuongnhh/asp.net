@@ -28,134 +28,123 @@
 }
 
 <div class="card-box">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập mã sản phẩm" } })
+                            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên sản phẩm" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập giá sản phẩm" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.ChipLed, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ChipLed, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập chip led" } })
+                            @Html.ValidationMessageFor(model => model.ChipLed, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Waranty, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Waranty, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập hạn bảo hành { nhập số tháng}" } })
+                            @Html.ValidationMessageFor(model => model.Waranty, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage", @placeholder = "Chọn một ảnh cho sản phẩm" })
+                            <a href="#" id="selectimage">Chọn ảnh</a>
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Manufacturer, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập nhà sản xuất" } })
+                            @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.ShowOnHome, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            <label class="c-input c-checkbox">
+                                @Html.CheckBoxFor(model => model.ShowOnHome, new { @class = "c-input c-checkbox", @type = "checkbox" })
+                                <span class="c-indicator"></span>
+                                Check để hiện sản phẩm lên trang chủ
+                            </label>
 
-        <div class="form-horizontal">
-            <h4>Product</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập mã sản phẩm" } })
-                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.ShowOnHome, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.DisplayOrder, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta keywords { dùng để hỗ trợ seo}" } })
+                            @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.MetaDescription, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.MetaDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta description { dùng để hỗ trợ seo}" } })
+                            @Html.ValidationMessageFor(model => model.MetaDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên sản phẩm" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-6">
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập giá sản phẩm" } })
-                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.ChipLed, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ChipLed, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập chip led" } })
-                    @Html.ValidationMessageFor(model => model.ChipLed, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Waranty, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Waranty, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập hạn bảo hành { nhập số tháng}" } })
-                    @Html.ValidationMessageFor(model => model.Waranty, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "urlimage", @placeholder = "Chọn một ảnh cho sản phẩm" })
-                    <a href="#" id="selectimage">Chọn ảnh</a>
-                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.Manufacturer, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập nhà sản xuất" } })
-                    @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.ShowOnHome, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <label class="c-input c-checkbox">
-                        @Html.CheckBoxFor(model => model.ShowOnHome, new { @class = "c-input c-checkbox", @type = "checkbox" })
-                        <span class="c-indicator"></span>
-                        Check để hiện sản phẩm lên trang chủ
-                    </label>
-
-                    @Html.ValidationMessageFor(model => model.ShowOnHome, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.DisplayOrder, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta keywords { dùng để hỗ trợ seo}" } })
-                    @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.MetaDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MetaDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập meta description { dùng để hỗ trợ seo}" } })
-                    @Html.ValidationMessageFor(model => model.MetaDescription, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-                </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+            </div>
+            <fieldset class="form-group pull-right">
+                <div class="col-md-12">
                     <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
                 </div>
             </fieldset>
