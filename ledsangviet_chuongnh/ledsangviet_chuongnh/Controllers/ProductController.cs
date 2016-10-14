@@ -16,13 +16,22 @@ namespace ledsangviet_chuongnh.Controllers
             return View();
         }
 
-        public ActionResult Detail(int ? id)
+        public ActionResult Detail(int? id)
         {
             var model = db.Products.Find(id);
             Category categoryId = db.Categories.Where(x => x.Id == model.CategoryId).FirstOrDefault<Category>();
             ViewBag.productRelate = db.Products.Where(x => x.CategoryId == categoryId.Id).ToList<Product>();
 
             return View(model);
+        }
+
+        public ActionResult Search(string keyword)
+        {
+            ViewBag.Keyword = keyword;
+            var result = db.Products
+                .Where(x => x.Name.ToUpper().Contains(keyword.ToUpper()))
+                .ToList<Product>();
+            return View(result);
         }
     }
 }

@@ -38,7 +38,7 @@
             //Buttons examples
             var table = $('#datatable-buttons').DataTable({
                 lengthChange: false,
-                buttons: ['copy', 'excel', 'pdf', 'colvis']
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print', 'colvis']
             });
 
             table.buttons().container()
@@ -83,7 +83,7 @@
                         @Html.DisplayFor(modelItem => item.CreateBy)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Image)
+                        <img src="@item.Image" class="img-responsive" style="width:150px; padding:0px">
                     </td>
                     <td>
                         @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |

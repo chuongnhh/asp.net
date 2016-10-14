@@ -8,7 +8,7 @@
     <meta name="author" content="Nguyen Hoang Chuong">
 
     <!-- App Favicon -->
-    <link rel="shortcut icon" href="/Assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/Assets/Client/images/favicon.ico">
 
     <!-- App title -->
     <title>@ViewBag.Title</title>
@@ -17,13 +17,13 @@
 
     @Styles.Render("~/bundles/css");
     <link href="/Assets/Client/css/style.css" rel="stylesheet" type="text/css" />
+    @*<link href="/Assets/Client/css/jquery-ui.css" rel="stylesheet" />*@
 
-    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+    <!-- Plugins css-->
+    @*<link href="/Assets/Client/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/Assets/Client/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/Client/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />*@
+
 </head>
 <body>
     <!-- Navigation Bar-->
@@ -42,6 +42,18 @@
         </div> <!-- container -->
     </div> <!-- End wrapper -->
     @Scripts.Render("~/bundles/js");
+
+    @*<script src="/Assets/Client/js/jquery-ui.js"></script>
+    <script src="/Assets/Client/js/controller/baseController.js"></script>*@
+
+    <!-- Autocomplete -->
+    @*<script type="text/javascript" src="/Assets/Client/plugins/autocomplete/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="/Assets/Client/plugins/autocomplete/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="/Assets/Client/plugins/autocomplete/countries.js"></script>
+    <script type="text/javascript" src="/Assets/Client/pages/jquery.autocomplete.init.js"></script>
+
+    <script type="text/javascript" src="/Assets/Client/pages/jquery.formadvanced.init.js"></script>*@
+
     <div id='bttop'>Lên đầu trang</div>
 </body>
 

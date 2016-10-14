@@ -1,0 +1,43 @@
+﻿@model List<ledsangviet_chuongnh.Models.Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var keyword = ViewBag.Keyword;
+    ViewBag.Title = "Kết quả tìm kiếm " + "\"" + @keyword + "\"";
+}
+
+
+<h4>Danh sách sản phẩm được tìm thấy với từ khóa: "@keyword"</h4>
+@if (@Model.Count() == 0)
+{
+    <hr />
+    <div>
+        <h4>Không tìm thấy sản phẩm nào</h4>
+    </div>
+    return;
+}
+<div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="portfolioContainer">
+            <div class="col-sm-6 col-md-3">
+                <div class="thumb">
+                    <a href="/san-pham/@p.MetaTitle-@p.Id" class="image-popup" title="/san-pham/@p.MetaTitle-@p.Id">
+                        <img src="@p.Image" class="thumb-img" alt="@p.Name">
+                    </a>
+                    <div class="gal-detail text-xs">
+                        <h4 class="m-t-10"><a href="/san-pham/@p.MetaTitle-@p.Id" title="/san-pham/@p.MetaTitle-@p.Id">@p.Name</a></h4>
+                        <p class="text-muted">
+                            Giá sản phẩm: <strong>@p.Price</strong><br>
+                            Chip led: <strong>@p.ChipLed</strong><br>
+                            Bảo hành: @p.Waranty<br>
+                            Hãng sản xuất: <strong>@p.Manufacturer</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- / product relative-->
+<br />
+

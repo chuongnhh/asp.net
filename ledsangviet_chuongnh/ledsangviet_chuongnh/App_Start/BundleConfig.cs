@@ -17,6 +17,7 @@ namespace ledsangviet_chuongnh.App_Start
                          //<!-- Switchery css -->
                          "~/Assets/Client/plugins/switchery/switchery.min.css",
                          // <!-- App CSS -->
+                         "~/Assets/Client/plugins/magnific-popup/css/magnific-popup.css",
                          //"~/Assets/css/style.css",
                          "~/Assets/Client/css/site.css"
                          ));
@@ -35,6 +36,8 @@ namespace ledsangviet_chuongnh.App_Start
                          // Counter Up
                          "~/Assets/Client/plugins/waypoints/lib/jquery.waypoints.js",
                          "~/Assets/Client/plugins/counterup/jquery.counterup.min.js",
+
+                         "~/Assets/Client/plugins/magnific-popup/js/jquery.magnific-popup.min.js",
                          // App js
                          "~/Assets/Client/js/jquery.core.js",
                          "~/Assets/Client/js/jquery.app.js",

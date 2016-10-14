@@ -15,6 +15,13 @@ namespace ledsangviet_chuongnh
 
             // client
             routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+                namespaces: new[] { "ledsangviet_chuongnh.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Home",
                 url: "trang-chu",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

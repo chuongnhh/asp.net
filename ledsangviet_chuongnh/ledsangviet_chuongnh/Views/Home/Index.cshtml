@@ -71,7 +71,17 @@
 @foreach (var c in category)
 {
     <div class="row">
-        <h4 class="page-title">@c.Name</h4><hr>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <h4 class="page-title">@c.Name</h4>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="pull-md-right pull-lg-right" style="padding-top:25px">
+                    <a href="/loai-san-pham/@c.MetaTitle-@c.Id">Xem tất cả sản phẩm</a>
+                </div>
+            </div>
+        </div>
+        <hr>
         @foreach (var p in c.Products)
         {
             <div class="portfolioContainer">

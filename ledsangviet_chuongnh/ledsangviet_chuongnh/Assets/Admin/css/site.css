@@ -7,10 +7,18 @@
     }
 
 .side-menu-custom {
-    background-color: #D1D1D1 !important;
+    background-color: #ffffff !important;
 }
 
 .menu-title-custom {
-    color: #4D7C8C !important;
+    color: #222222 !important;
     font-weight:bold !important;
+    background-color:#D1D1D1 !important;
+    border-bottom: #E3E3E3 solid 1px !important;
+}
+.has_sub {
+    border-bottom: #E3E3E3 solid 1px !important;
+}
+.has_sub ul li{
+    border-top: #E3E3E3 solid 1px !important;
 }
