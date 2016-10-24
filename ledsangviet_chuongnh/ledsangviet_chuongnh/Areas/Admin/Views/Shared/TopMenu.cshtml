@@ -24,7 +24,7 @@
             <li class="nav-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="false" aria-expanded="false">
-                    <img src="/Assets/Admin/images/users/avatar-1.jpg" alt="user" @*class="img-circle"*@>
+                    <img src="/Assets/Admin/images/users/avatar-1.jpg" alt="user">
                     @*<span><i class="zmdi zmdi-account-circle zmdi-hc-2x"></i></span>*@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
@@ -32,21 +32,11 @@
                     <div class="dropdown-item noti-title">
                         <h5 class="text-overflow"><small>Welcome ! Nguyen Hoang Chuong</small> </h5>
                     </div>
+                    <!-- item-->
+                    @Html.ActionLink(" Thiết lập", "SignOut", "Login",null, new { @class = "dropdown-item notify-item zmdi zmdi-settings" })
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="zmdi zmdi-account-circle"></i> <span>Hồ sơ</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="zmdi zmdi-settings"></i> <span>Thiết lập</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="zmdi zmdi-power"></i> <span>Đăng xuất</span>
-                    </a>
+                    <div>@Html.ActionLink(" Đăng xuất", "SignOut", "Login",null, new { @class = "dropdown-item notify-item zmdi zmdi-power" })</div>
                 </div>
             </li>
         </ul>

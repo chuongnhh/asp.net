@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
-    public class HomeController : BaseController
+    [Authorize]
+    public class HomeController : Controller
     {
         DBContext db = new DBContext();
         // GET: Admin/Default

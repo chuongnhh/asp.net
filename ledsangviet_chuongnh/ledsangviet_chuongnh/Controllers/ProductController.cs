@@ -15,7 +15,7 @@ namespace ledsangviet_chuongnh.Controllers
         {
             return View();
         }
-
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "id", Location = System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Detail(int? id)
         {
             var model = db.Products.Find(id);

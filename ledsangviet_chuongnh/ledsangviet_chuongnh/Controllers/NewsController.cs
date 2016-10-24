@@ -18,6 +18,7 @@ namespace ledsangviet_chuongnh.Controllers
             ViewBag.News = db.News.ToList<News>();
             return View();
         }
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "id", Location = System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Detail(int ?id)
         {
             ViewBag.News = db.News.ToList<News>();

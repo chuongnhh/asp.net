@@ -12,7 +12,8 @@ using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
-    public class AccountController : BaseController
+    [Authorize]
+    public class AccountController : Controller
     {
         private DBContext db = new DBContext();
 

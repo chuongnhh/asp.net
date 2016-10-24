@@ -11,7 +11,8 @@ using ledsangviet_chuongnh.Models;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
-    public class AboutController : BaseController
+    [Authorize]
+    public class AboutController : Controller
     {
         private DBContext db = new DBContext();
 

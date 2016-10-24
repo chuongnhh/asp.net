@@ -1341,6 +1341,7 @@
     <Content Include="Assets\Admin\plugins\x-editable\js\bootstrap-editable.min.js" />
     <Content Include="Assets\Client\css\jquery-ui.css" />
     <Content Include="Assets\Client\favicon.ico" />
+    <Content Include="Assets\Client\js\angular.min.js" />
     <Content Include="Assets\Client\js\controller\baseController.js" />
     <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\Template\mailtemplate.html" />
@@ -1518,11 +1519,13 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeliveryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
+    <Compile Include="Areas\Admin\Models\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonContants.cs" />
     <Compile Include="Common\Encryptor.cs" />
@@ -1538,7 +1541,7 @@
     <Compile Include="Controllers\PagesMaintenanceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServerErrorController.cs" />
-    <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1547,6 +1550,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Product.cs" />
@@ -1604,7 +1608,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Delivery\Index.cshtml" />
     <Content Include="Views\Consultant\Index.cshtml" />
     <Content Include="Views\Shared\NavigationBar.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
@@ -1709,6 +1713,11 @@
     <Content Include="Areas\Admin\Views\News\Details.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Index.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />

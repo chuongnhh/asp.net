@@ -50,9 +50,9 @@ namespace ledsangviet_chuongnh
            );
 
             routes.MapRoute(
-               name: "Supplier",
+               name: "Delivery",
                url: "he-thong-phan-phoi",
-               defaults: new { controller = "Supplier", action = "Index", id = UrlParameter.Optional },
+               defaults: new { controller = "Delivery", action = "Index", id = UrlParameter.Optional },
                namespaces: new[] { "ledsangviet_chuongnh.Controllers" }
            );
 

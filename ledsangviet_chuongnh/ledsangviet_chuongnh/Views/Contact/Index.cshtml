@@ -34,11 +34,11 @@
                             {
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.Name)
-                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @placeholder = "Nhập họ tên của bạn" })
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @required = "", @placeholder = "Nhập họ tên của bạn" })
                                 </fieldset>
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.Email)
-                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "text", @placeholder = "Nhập địa chỉ email" })
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "email", @required = "", @placeholder = "Nhập địa chỉ email" })
                                 </fieldset>
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.Address)
@@ -46,11 +46,11 @@
                                 </fieldset>
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.PhoneNumber)
-                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @type = "text", @placeholder = "Nhập số điện thoại của bạn" })
+                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @type = "number", @minlength = "10", @maxlength = "11", @placeholder = "Nhập số điện thoại của bạn" })
                                 </fieldset>
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.Content)
-                                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", @type = "text", @placeholder = "Nhập địa nội dung bạn muốn gửi" })
+                                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", @type = "text", @required = "", @placeholder = "Nhập địa nội dung bạn muốn gửi" })
                                 </fieldset>
 
                                 <button id="btnSend" type="submit" class="btn btn-primary">Gửi cho chúng tôi</button>
@@ -59,7 +59,7 @@
                     </div><!-- end col -->
                     <div class="col-xs-12 col-lg-12 col-xl-7">
                         <div class="thumb">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.519256915468!2d106.71454831435112!3d10.848054492272949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527a3c8f1c0f1%3A0xbe9b041a3642434b!2zxJDGsOG7nW5nIFPhu5EgOSwgVGjhu6cgxJDhu6ljLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1475915828056" width="665" height="565" frameborder="0" style="border:0" allowfullscreen class="thumb-img"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.519256915468!2d106.71454831435112!3d10.848054492272949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527a3c8f1c0f1%3A0xbe9b041a3642434b!2zxJDGsOG7nW5nIFPhu5EgOSwgVGjhu6cgxJDhu6ljLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1475915828056" height="515" frameborder="0" style="border:0" allowfullscreen class="thumb-img"></iframe>
                         </div>
                     </div><!-- end col -->
                 </div>

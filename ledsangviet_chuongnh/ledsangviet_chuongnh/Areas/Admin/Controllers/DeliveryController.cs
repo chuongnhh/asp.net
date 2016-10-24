@@ -8,119 +8,111 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ledsangviet_chuongnh.Models;
-using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
     [Authorize]
-    public class ProductController : Controller
+    public class DeliveryController : Controller
     {
         private DBContext db = new DBContext();
 
-        // GET: Admin/Product
+        // GET: Admin/Delivery
         public async Task<ActionResult> Index()
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(await products.ToListAsync());
+            return View(await db.Deliveries.ToListAsync());
         }
 
-        // GET: Admin/Product/Details/5
+        // GET: Admin/Delivery/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Delivery delivery = await db.Deliveries.FindAsync(id);
+            if (delivery == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(delivery);
         }
 
-        // GET: Admin/Product/Create
+        // GET: Admin/Delivery/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
             return View();
         }
 
-        // POST: Admin/Product/Create
+        // POST: Admin/Delivery/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Code,Name,Price,ChipLed,Waranty,Description,Note,Image,Manufacturer,CategoryId,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Product product)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Address,Email,Hotline,Website,Fanpage,Description,Image,Status,CreateDate,CreateBy")] Delivery delivery)
         {
             if (ModelState.IsValid)
             {
-                product.MetaTitle = StringHelper.ToUnsignString(product.Name);
-                db.Products.Add(product);
+                db.Deliveries.Add(delivery);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            return View(delivery);
         }
 
-        // GET: Admin/Product/Edit/5
+        // GET: Admin/Delivery/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Delivery delivery = await db.Deliveries.FindAsync(id);
+            if (delivery == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            return View(delivery);
         }
 
-        // POST: Admin/Product/Edit/5
+        // POST: Admin/Delivery/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Code,Name,Price,ChipLed,Waranty,Description,Note,Image,Manufacturer,CategoryId,ShowOnHome,DisplayOrder,MetaTitle,SeoTitle,MetaKeywords,MetaDescription,CreateDate,CreateBy")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Address,Email,Hotline,Website,Fanpage,Description,Image,Status,CreateDate,CreateBy")] Delivery delivery)
         {
             if (ModelState.IsValid)
             {
-                product.MetaTitle = StringHelper.ToUnsignString(product.Name);
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(delivery).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            return View(product);
+            return View(delivery);
         }
 
-        // GET: Admin/Product/Delete/5
+        // GET: Admin/Delivery/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
+            Delivery delivery = await db.Deliveries.FindAsync(id);
+            if (delivery == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(delivery);
         }
 
-        // POST: Admin/Product/Delete/5
+        // POST: Admin/Delivery/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Product product = await db.Products.FindAsync(id);
-            db.Products.Remove(product);
+            Delivery delivery = await db.Deliveries.FindAsync(id);
+            db.Deliveries.Remove(delivery);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
