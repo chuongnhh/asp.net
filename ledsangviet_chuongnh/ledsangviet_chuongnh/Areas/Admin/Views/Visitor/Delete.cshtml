@@ -1,0 +1,94 @@
+﻿@model ledsangviet_chuongnh.Models.Visitor
+
+@{
+    ViewBag.Title = "Delete visitor";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section PageTitle{
+    Delete visitor
+}
+<div class="card-box">
+    <h3>Bạn có chắc chắn muốn xóa nó?</h3>
+    <div>
+        <h4>Visitor</h4>
+        <hr />
+        <dl class="dl-horizontal" style="padding:0px 20px 0px 20px">
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Browser)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Browser)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Version)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Version)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Platform)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Platform)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserAgent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserAgent)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserLanguages)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserLanguages)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserHostAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserHostAddress)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về danh sách", "Index")
+            </div>
+        }
+    </div>
+
+</div>

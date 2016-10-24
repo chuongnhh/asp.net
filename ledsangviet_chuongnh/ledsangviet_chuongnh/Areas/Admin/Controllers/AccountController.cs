@@ -8,7 +8,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ledsangviet_chuongnh.Models;
-using ledsangviet_chuongnh.Common;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
@@ -53,7 +52,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                account.Password = Encryptor.MD5Hash(account.Password);
+                account.Password = account.Password;
                 db.Accounts.Add(account);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -88,7 +87,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             {
                 //var ac = db.Accounts.Find(account.Username);
                 //if (account.Password == ac.Password)// khac moi ma hoa
-                account.Password = Encryptor.MD5Hash(account.Password);
+                account.Password = account.Password;
 
                 db.Entry(account).State = EntityState.Modified;
                 await db.SaveChangesAsync();

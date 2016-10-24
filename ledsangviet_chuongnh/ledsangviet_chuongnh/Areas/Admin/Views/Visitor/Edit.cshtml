@@ -1,0 +1,97 @@
+﻿@model ledsangviet_chuongnh.Models.Visitor
+
+@{
+    ViewBag.Title = "Edit visitor";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section PageTitle{
+    Edit visitor
+}
+<div class="card-box">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Visitor</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.Browser, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Browser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Browser, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.Version, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Version, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Version, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.Platform, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Platform, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Platform, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.UserAgent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserAgent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserAgent, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.UserLanguages, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserLanguages, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserLanguages, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                @Html.LabelFor(model => model.UserHostAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserHostAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserHostAddress, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </div>
+</div>

@@ -19,7 +19,8 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             ViewBag.ProductCount = db.Products.Count();
             ViewBag.NewsCount = db.News.Count();
             ViewBag.AccountCount = db.Accounts.Count();
-            //ViewBag.Account = db.Accounts.Find(Membership.GetUser().UserName);
+            ViewBag.VisitorCount = db.Visitors.Count();
+            ViewBag.DeliveryCount = db.Deliveries.Count();
             return View();
         }
 

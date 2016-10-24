@@ -1,5 +1,4 @@
 ﻿using ledsangviet_chuongnh.Areas.Admin.Models;
-using ledsangviet_chuongnh.Common;
 using ledsangviet_chuongnh.Models;
 using System;
 using System.Collections.Generic;
@@ -25,16 +24,8 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string username, string password)
         {
-            //Account acc = db.Accounts.Find(username);
             if (Membership.ValidateUser(username, password))
             {
-                //var accLogin = new LoginModel();
-
-                //accLogin.Username = acc.Username;
-                //accLogin.Password = acc.Password;
-                //accLogin.Image = acc.Image;
-
-                //Session.Add(CommonContants.ACCOUNT_SESSION, accLogin);
                 FormsAuthentication.SetAuthCookie(username, false);
                 return RedirectToAction("Index", "Home");
             }

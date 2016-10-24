@@ -197,7 +197,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Models
         {
             Account acc = db.Accounts.Find(username);
 
-            if (acc != null && acc.Password == GetMD5Hash(password))
+            if (acc != null && acc.Password == password)
             {
                 return true;
             }

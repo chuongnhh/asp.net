@@ -6,6 +6,8 @@
     var productCount = (int)ViewBag.ProductCount;
     var newsCount = (int)ViewBag.NewsCount;
     var accountCount = (int)ViewBag.AccountCount;
+    var visitorCount = (int)ViewBag.VisitorCount;
+    var deliveryCount = (int)ViewBag.DeliveryCount;
 }
 @section PageTitle{
     Trang chủ
@@ -65,6 +67,28 @@
             <div class="text-xs-right">
                 <h6 class="text-success text-uppercase m-b-15 m-t-10"><a href="/Admin/Account">Người dùng</a></h6>
                 <h2 class="m-b-10"><span>@accountCount</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-three">
+            <div class="bg-icon pull-xs-left">
+                <a href="/Admin/Delivery"><i class="typcn typcn-export"></i></a>
+            </div>
+            <div class="text-xs-right">
+                <h6 class="text-success text-uppercase m-b-15 m-t-10"><a href="/Admin/Delivery">Hệ thống phân phối</a></h6>
+                <h2 class="m-b-10"><span>@deliveryCount</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card-box tilebox-three">
+            <div class="bg-icon pull-xs-left">
+                <a href="/Admin/Visitor"><i class="typcn typcn-group"></i></a>
+            </div>
+            <div class="text-xs-right">
+                <h6 class="text-success text-uppercase m-b-15 m-t-10"><a href="/Admin/Visitor">Khách ghé thăm</a></h6>
+                <h2 class="m-b-10"><span>@visitorCount</span></h2>
             </div>
         </div>
     </div>

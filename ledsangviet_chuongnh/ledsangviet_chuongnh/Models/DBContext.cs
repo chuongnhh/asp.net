@@ -22,5 +22,6 @@ namespace ledsangviet_chuongnh.Models
         public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
         public virtual DbSet<Delivery> Deliveries { get; set; }
+        public virtual DbSet<Visitor> Visitors { get; set; }
     }
 }

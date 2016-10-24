@@ -1517,7 +1517,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\DeliveryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -1525,10 +1524,9 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VisitorController.cs" />
     <Compile Include="Areas\Admin\Models\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
-    <Compile Include="Common\CommonContants.cs" />
-    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Common\StringHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
@@ -1556,6 +1554,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Models\SystemConfig.cs" />
+    <Compile Include="Models\Visitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1718,6 +1717,10 @@
     <Content Include="Areas\Admin\Views\Delivery\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\TopMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Visitor\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Visitor\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Visitor\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Visitor\Index.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
