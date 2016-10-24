@@ -1,4 +1,7 @@
-﻿<div class="topbar">
+﻿
+@model ledsangviet_chuongnh.Models.Account
+
+<div class="topbar">
     <!-- LOGO -->
     <div class="topbar-left topbar-left-custom">
         <a href="/Admin/Home" class="logo">
@@ -24,19 +27,30 @@
             <li class="nav-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="false" aria-expanded="false">
-                    <img src="/Assets/Admin/images/users/avatar-1.jpg" alt="user">
+                    @{if (Model != null)
+                        {
+                            <img src="@Model.Image" alt="user">
+                        }
+                    }
+
                     @*<span><i class="zmdi zmdi-account-circle zmdi-hc-2x"></i></span>*@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
-                        <h5 class="text-overflow"><small>Welcome ! Nguyen Hoang Chuong</small> </h5>
+                        <h5 class="text-overflow">
+                            @{if (Model != null)
+                                {
+                                    <small> @Model.Name</small>
+                                }
+                            }
+                        </h5>
                     </div>
                     <!-- item-->
-                    @Html.ActionLink(" Thiết lập", "SignOut", "Login",null, new { @class = "dropdown-item notify-item zmdi zmdi-settings" })
+                    @Html.ActionLink(" Thiết lập", "Edit", "Account", new { id = @Model.Username }, new { @class = "dropdown-item notify-item zmdi zmdi-settings" })
 
                     <!-- item-->
-                    <div>@Html.ActionLink(" Đăng xuất", "SignOut", "Login",null, new { @class = "dropdown-item notify-item zmdi zmdi-power" })</div>
+                    <div>@Html.ActionLink(" Đăng xuất", "SignOut", "Login", null, new { @class = "dropdown-item notify-item zmdi zmdi-power" })</div>
                 </div>
             </li>
         </ul>

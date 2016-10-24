@@ -27,7 +27,7 @@
     <!-- Begin page -->
     <div id="wrapper">
         <!-- Top Bar Start -->
-        @RenderPage("TopMenu.cshtml")
+        @{Html.RenderAction("TopMenu", "Home");}
         <!-- Top Bar End -->
         <!-- ========== Left Sidebar Start ========== -->
         @RenderPage("LeftMenu.cshtml")

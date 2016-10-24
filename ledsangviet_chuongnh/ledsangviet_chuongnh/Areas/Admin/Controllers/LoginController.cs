@@ -26,7 +26,6 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         public ActionResult Login(string username, string password)
         {
             //Account acc = db.Accounts.Find(username);
-            FormsAuthentication.SignOut();
             if (Membership.ValidateUser(username, password))
             {
                 //var accLogin = new LoginModel();
@@ -51,5 +50,6 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
         }
+
     }
 }

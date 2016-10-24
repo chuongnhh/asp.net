@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ledsangviet_chuongnh.Areas.Admin.Controllers
 {
@@ -18,7 +19,15 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             ViewBag.ProductCount = db.Products.Count();
             ViewBag.NewsCount = db.News.Count();
             ViewBag.AccountCount = db.Accounts.Count();
+            //ViewBag.Account = db.Accounts.Find(Membership.GetUser().UserName);
             return View();
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult TopMenu()
+        {
+            var model = db.Accounts.Find(Membership.GetUser().UserName);
+            return PartialView(model);
         }
     }
 }

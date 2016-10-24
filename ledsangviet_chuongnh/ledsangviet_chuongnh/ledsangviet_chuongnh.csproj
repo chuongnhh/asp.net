@@ -1678,7 +1678,6 @@
     <Content Include="Areas\Admin\Views\Slide\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Slide\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\LeftMenu.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\TopMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Views\PageNotFound\Index.cshtml" />
     <Content Include="Views\ServerError\Index.cshtml" />
@@ -1718,6 +1717,7 @@
     <Content Include="Areas\Admin\Views\Delivery\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\TopMenu.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
