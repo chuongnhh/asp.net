@@ -16,6 +16,7 @@ namespace ledsangviet_chuongnh.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            ViewBag.Title = ConfigurationManager.AppSettings["ContactTitle"].ToString();
             ViewBag.Contact = db.Abouts.FirstOrDefault<About>();
             return View();
         }

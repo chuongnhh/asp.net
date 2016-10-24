@@ -1,6 +1,5 @@
 ﻿
 @{
-    ViewBag.Title = "Tin tức | Led sáng việt";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var news = (List<ledsangviet_chuongnh.Models.News>)ViewBag.News;
 }
@@ -22,15 +21,11 @@
 
                     <div class="card">
                         <div class="card-block">
-                            <h5 class="card-title"><a href="/tin-tuc/@n.MetaTitle-@n.Id">@n.Title</a></h5>
-                            <a href="#" class="card-subtitle text-muted"><i class="zmdi zmdi-accounts-alt"></i> @n.CreateBy</a>
-                        </div>
-                        <a href="#"><img class="img-fluid" src="@n.Image" alt="Card image cap"></a>
-
-                        <div class="card-block">
+                            <h5 class="card-title"><a href="/tin-tuc/@n.MetaTitle-@n.Id"><span style="color:#000">@n.Title</span></a></h5>
+                            <a href="/tin-tuc/@n.MetaTitle-@n.Id"><img class="img-fluid" src="@n.Image" alt="@n.MetaTitle-@n.Id"></a>
                             <p class="card-text">@n.Description</p>
                             <a href="/tin-tuc/@n.MetaTitle-@n.Id" class="card-link">Xem chi tiết...</a>
-                        </div>
+                         </div>
                     </div>
                 </div><!-- end col -->
             }
@@ -47,9 +42,8 @@
                     <a href="/tin-tuc/@n.MetaTitle-@n.Id">
                         <div class="blog-item">
                             <div class="blog-item-img"><img src="@n.Image" class="img" alt=""></div>
-                            <p class="blog-item-title">@n.Title.Substring(0, 35)...</p>
-                            <p class="blog-item-text">@n.Description.Substring(0, 100)...</p>
-                            <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
+                            <p class="blog-item-title">@n.Title.Substring(0, n.Title.Length > 35 ? 35 : n.Title.Length)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, n.Description.Length > 100 ? 100 : n.Description.Length)...</p>
                         </div>
                     </a>
                 }

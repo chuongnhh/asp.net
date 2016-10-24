@@ -1,6 +1,7 @@
 ﻿using ledsangviet_chuongnh.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +14,7 @@ namespace ledsangviet_chuongnh.Controllers
         // GET: News
         public ActionResult Index()
         {
+            ViewBag.Title = ConfigurationManager.AppSettings["NewsTitle"].ToString();
             ViewBag.News = db.News.ToList<News>();
             return View();
         }

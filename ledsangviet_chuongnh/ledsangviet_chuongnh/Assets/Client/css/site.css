@@ -18,3 +18,10 @@
     border: 1px solid #ffa789;
     background: #ff6734;
 }
+.footer{
+    /*padding:0px;*/
+    margin:0px;
+}
+.body{
+    padding:0px !important;
+}

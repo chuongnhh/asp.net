@@ -6,18 +6,13 @@
     <meta name="description" content="Nguyen Hoang Chuong">
     <meta name="author" content="Nguyen Hoang Chuong">
     <!-- App Favicon -->
-    <link rel="shortcut icon" href="/Assets/Client/images/favicon.ico">
+    <link rel="shortcut icon" href="/Assets/Client/favicon.ico">
     <!-- App title -->
     <title>@ViewBag.Title</title>
     <meta name="keywords" content="@ViewBag.Keyword" />
     <meta name="description" content="@ViewBag.Description" />
     @Styles.Render("~/bundles/css");
     <link href="/Assets/Client/css/style.css" rel="stylesheet" type="text/css" />
-    @*<link href="/Assets/Client/css/jquery-ui.css" rel="stylesheet" />*@
-    <!-- Plugins css-->
-    @*<link href="/Assets/Client/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
-    <link href="/Assets/Client/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
-    <link href="/Assets/Client/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />*@
 </head>
 <body>
     <!-- Navigation Bar-->
@@ -29,21 +24,14 @@
     <div class="wrapper">
         <div class="container">
             @RenderBody()
-            @{Html.RenderAction("Footer", "Home");}
             <script>
                 var resizefunc = [];
             </script>
         </div> <!-- container -->
     </div> <!-- End wrapper -->
+
+    @{Html.RenderAction("Footer", "Home");}
     @Scripts.Render("~/bundles/js");
-    @*<script src="/Assets/Client/js/jquery-ui.js"></script>
-    <script src="/Assets/Client/js/controller/baseController.js"></script>*@
-    <!-- Autocomplete -->
-    @*<script type="text/javascript" src="/Assets/Client/plugins/autocomplete/jquery.mockjax.js"></script>
-    <script type="text/javascript" src="/Assets/Client/plugins/autocomplete/jquery.autocomplete.min.js"></script>
-    <script type="text/javascript" src="/Assets/Client/plugins/autocomplete/countries.js"></script>
-    <script type="text/javascript" src="/Assets/Client/pages/jquery.autocomplete.init.js"></script>
-    <script type="text/javascript" src="/Assets/Client/pages/jquery.formadvanced.init.js"></script>*@
     <div id='bttop'>Lên đầu trang</div>
 </body>
 

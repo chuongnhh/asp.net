@@ -6,15 +6,9 @@
 }
 
 <!-- Page-Title -->
-<div class="row">
-    <div class="col-sm-12">
-
-        <h4 class="page-title">Tin tức</h4>
-    </div>
-</div>
 
 <div class="row">
-    <div class="col-xs-12 col-lg-12 col-xl-9">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
         <div class="row">
             <div class="card-box">
                 <div class="row">
@@ -33,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-lg-12 col-xl-3">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
         <div class="card-box">
             <h4 class="header-title m-t-0 m-b-20">Tin mới nhất</h4>
             <div class="blog-widget nicescroll">
@@ -42,9 +36,8 @@
                     <a href="/tin-tuc/@n.MetaTitle-@n.Id" title="@n.Title">
                         <div class="blog-item">
                             <div class="blog-item-img"><img src="@n.Image" class="img" alt="@n.Title"></div>
-                            <p class="blog-item-title">@n.Title.Substring(0,35)...</p>
-                            <p class="blog-item-text">@n.Description.Substring(0, 100)...</p>
-                            <p class="blog-item-date">@n.CreateDate.ToShortDateString()</p>
+                            <p class="blog-item-title">@n.Title.Substring(0, n.Title.Length > 35 ? 35 : n.Title.Length)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, n.Description.Length > 100 ? 100 : n.Description.Length)...</p>
                         </div>
                     </a>
                 }

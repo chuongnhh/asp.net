@@ -1172,6 +1172,7 @@
     <Content Include="Areas\Admin\Content\ckfinder\translations.txt" />
     <Content Include="Assets\Admin\css\site.css" />
     <Content Include="Assets\Admin\css\style.css" />
+    <Content Include="Assets\Admin\favicon.ico" />
     <Content Include="Assets\Admin\fonts\fontawesome-webfont9efe.svg" />
     <Content Include="Assets\Admin\fonts\ioniconsaa26.svg" />
     <Content Include="Assets\Admin\fonts\Pe-icon-7-strokebb1d.svg" />
@@ -1179,7 +1180,6 @@
     <Content Include="Assets\Admin\fonts\themify9f24.svg" />
     <Content Include="Assets\Admin\fonts\typicons.svg" />
     <Content Include="Assets\Admin\fonts\weathericons-regular-webfont.svg" />
-    <Content Include="Assets\Admin\images\favicon.ico" />
     <Content Include="Assets\Admin\images\users\avatar-1.jpg" />
     <Content Include="Assets\Admin\images\users\avatar-10.jpg" />
     <Content Include="Assets\Admin\images\users\avatar-2.jpg" />
@@ -1340,6 +1340,7 @@
     <Content Include="Assets\Admin\plugins\x-editable\img\loading.gif" />
     <Content Include="Assets\Admin\plugins\x-editable\js\bootstrap-editable.min.js" />
     <Content Include="Assets\Client\css\jquery-ui.css" />
+    <Content Include="Assets\Client\favicon.ico" />
     <Content Include="Assets\Client\js\controller\baseController.js" />
     <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\Template\mailtemplate.html" />
