@@ -2,15 +2,10 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     var news = (List<ledsangviet_chuongnh.Models.News>)ViewBag.News;
+    var hotNews = (List<ledsangviet_chuongnh.Models.News>)ViewBag.HotNews;
 }
 
 <!-- Page-Title -->
-<div class="row">
-    <div class="col-sm-12">
-
-        <h4 class="page-title">Tin tức</h4>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-xs-12 col-lg-12 col-xl-9">
@@ -37,7 +32,7 @@
             <h4 class="header-title m-t-0 m-b-20">Tin mới nhất</h4>
 
             <div class="blog-widget nicescroll">
-                @foreach (var n in news)
+                @foreach (var n in hotNews)
                 {
                     <a href="/tin-tuc/@n.MetaTitle-@n.Id">
                         <div class="blog-item">

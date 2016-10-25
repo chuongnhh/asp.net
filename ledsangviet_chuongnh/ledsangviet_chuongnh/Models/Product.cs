@@ -32,6 +32,10 @@ namespace ledsangviet_chuongnh.Models
         [StringLength(100)]
         public string Price { get; set; }
 
+        [Display(Name = "Giảm giá")]
+        [StringLength(100)]
+        public string Promotion { get; set; }
+
         [Display(Name = "Chip Led")]
         [StringLength(250)]
         public string ChipLed { get; set; }

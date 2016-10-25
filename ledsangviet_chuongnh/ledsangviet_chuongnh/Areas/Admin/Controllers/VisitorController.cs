@@ -18,7 +18,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // GET: Admin/Visitor
         public async Task<ActionResult> Index()
         {
-            return View(await db.Visitors.ToListAsync());
+            return View(await db.Visitors.OrderByDescending(x=>x.DateTime).ToListAsync());
         }
 
         // GET: Admin/Visitor/Details/5
@@ -36,11 +36,6 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             return View(visitor);
         }
 
-        // GET: Admin/Visitor/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // GET: Admin/Visitor/Edit/5
         public async Task<ActionResult> Edit(int? id)

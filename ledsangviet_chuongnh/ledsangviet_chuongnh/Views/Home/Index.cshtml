@@ -15,33 +15,33 @@
                 <ol class="carousel-indicators">
                     @if (slide.Count() > 0)
                     {
-                    <li data-target="#carousel-example-captions-1" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-captions-1" data-slide-to="0" class="active"></li>
                     }
                     @for (int i = 1; i < slide.Count(); i++)
                     {
-                    <li data-target="#carousel-example-captions-1" data-slide-to="@i"></li>
+                        <li data-target="#carousel-example-captions-1" data-slide-to="@i"></li>
                     }
                 </ol>
                 <div role="listbox" class="carousel-inner">
                     @if (slide.Count() > 0)
                     {
-                    <div class="carousel-item active">
-                        <img src="@slide[0].Image" alt="@slide[0].Image">
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="text-white font-600">@slide[0].Name</h3>
-                        <p>@slide[0].Description</p>
-                    </div>
+                        <div class="carousel-item active">
+                            <a href="@slide[0].Link"><img src="@slide[0].Image" alt="@slide[0].Image"></a>
+                        </div>
+                        <div class="carousel-caption">
+                            <h3 class="text-white font-600">@slide[0].Name</h3>
+                            <p>@slide[0].Description</p>
+                        </div>
                     }
                     @for (int i = 1; i < slide.Count(); i++)
                     {
-                    <div class="carousel-item">
-                        <img src="@slide[i].Image" alt="@slide[i].Name">
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="text-white font-600">@slide[i].Name</h3>
-                        <p>@slide[i].Description</p>
-                    </div>
+                        <div class="carousel-item">
+                            <a href="@slide[0].Link"><img src="@slide[i].Image" alt="@slide[i].Name"></a>
+                        </div>
+                        <div class="carousel-caption">
+                            <h3 class="text-white font-600">@slide[i].Name</h3>
+                            <p>@slide[i].Description</p>
+                        </div>
                     }
                 </div>
             </div>
@@ -95,9 +95,9 @@
                         <div class="gal-detail text-xs">
                             <h4 class="m-t-10"><a href="/san-pham/@p.MetaTitle-@p.Id" title="@p.Name">@p.Name</a></h4>
                             <p class="text-muted">
-                                Giá sản phẩm: <strong style="color:green">@p.Price VNĐ</strong><br>
+                                Giá sản phẩm: <strong style="color:green">@p.Price</strong><br>
                                 Chip led: <strong style="color:green">@p.ChipLed</strong><br>
-                                Bảo hành: <span style="color:green">@p.Waranty</span><br>
+                                Thời hạn bảo hành: <span style="color:green">@p.Waranty</span><br>
                                 Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong>
                             </p>
                         </div>

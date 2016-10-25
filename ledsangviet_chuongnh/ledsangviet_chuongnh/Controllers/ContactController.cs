@@ -37,11 +37,33 @@ namespace ledsangviet_chuongnh.Controllers
                 content = content.Replace("{{content}}", feedback.Content);
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                 MailHelper mail = new MailHelper();
-                mail.SendMail(toEmail, "Thông tin từ khách hàng", content);
+                mail.SendMail(toEmail, "Yêu cầu liên hệ từ khách hàng", content);
 
                 return RedirectToAction("Index");
             }
             
+            return View(feedback);
+        }
+
+        public ActionResult SendMail([Bind(Include = "Id,Name,PhoneNumber,Address,Email,Content")] Feedback feedback)
+        {
+            if (ModelState.IsValid)
+            {
+                string content =
+                System.IO.File.ReadAllText(Server.MapPath("/Assets/Client/Template/mailtemplate.html"));
+                content = content.Replace("{{customerName}}", feedback.Name);
+                content = content.Replace("{{phoneNumber}}", feedback.PhoneNumber);
+                content = content.Replace("{{emailAddress}}", feedback.Email);
+                content = content.Replace("{{Address}}", feedback.Address);
+                content = content.Replace("{{content}}", feedback.Content);
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                MailHelper mail = new MailHelper();
+                mail.SendMail(toEmail, "Yêu cầu liên hệ từ khách hàng", content);
+                mail.SendMail(feedback.Email, "Yêu cầu liên hệ đến công ty Rigen", content);
+
+                return RedirectToAction("Index");
+            }
+
             return View(feedback);
         }
     }

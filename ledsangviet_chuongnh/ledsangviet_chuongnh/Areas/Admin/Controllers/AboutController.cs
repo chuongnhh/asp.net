@@ -19,7 +19,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         // GET: Admin/About
         public async Task<ActionResult> Index()
         {
-            return View(await db.Abouts.ToListAsync());
+            return View(await db.Abouts.OrderByDescending(x => x.CreateDate).ToListAsync());
         }
 
         // GET: Admin/About/Details/5

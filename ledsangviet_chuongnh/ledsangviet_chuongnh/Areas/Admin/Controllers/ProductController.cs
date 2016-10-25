@@ -21,7 +21,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
         public async Task<ActionResult> Index()
         {
             var products = db.Products.Include(p => p.Category);
-            return View(await products.ToListAsync());
+            return View(await products.OrderByDescending(x => x.CreateDate).ToListAsync());
         }
 
         // GET: Admin/Product/Details/5

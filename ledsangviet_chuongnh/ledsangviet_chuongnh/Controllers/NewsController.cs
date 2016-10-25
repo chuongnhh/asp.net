@@ -15,11 +15,19 @@ namespace ledsangviet_chuongnh.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = ConfigurationManager.AppSettings["NewsTitle"].ToString();
-            ViewBag.News = db.News.ToList<News>();
+            ViewBag.News = db.News
+                .OrderBy(x=>x.DisplayOrder)
+                .ToList<News>();
+
+            ViewBag.HotNews = db.News
+                .OrderByDescending(x => x.CreateDate)
+                .Take(20)
+                .OrderBy(x => x.DisplayOrder)
+                .ToList<News>();
             return View();
         }
         [OutputCache(Duration = int.MaxValue, VaryByParam = "id", Location = System.Web.UI.OutputCacheLocation.Server)]
-        public ActionResult Detail(int ?id)
+        public ActionResult Detail(int? id)
         {
             ViewBag.News = db.News.ToList<News>();
             var model = db.News.Find(id);

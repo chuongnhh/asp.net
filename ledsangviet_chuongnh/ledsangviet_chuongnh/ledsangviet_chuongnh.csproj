@@ -1526,7 +1526,6 @@
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\VisitorController.cs" />
     <Compile Include="Areas\Admin\Models\CustomMembershipProvider.cs" />
-    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Common\StringHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />

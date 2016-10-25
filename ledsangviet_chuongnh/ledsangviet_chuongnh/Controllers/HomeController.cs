@@ -31,6 +31,8 @@ namespace ledsangviet_chuongnh.Controllers
 
             ViewBag.News = db.News
                 .Where(x => x.ShowOnHome == true)
+                .OrderByDescending(x=>x.CreateDate)
+                .Take(10)
                 .OrderBy(x => x.DisplayOrder)
                 .ToList<News>();
 

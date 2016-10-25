@@ -1,16 +1,12 @@
-﻿
-@{
-    ViewBag.Title = "Tư vấn | Led sáng việt";
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var about = (ledsangviet_chuongnh.Models.About)ViewBag.About;
 }
 
 <!-- Page-Title -->
 <div class="row">
     <div class="col-xs-12">
         <div class="card-box">
-            <!-- <div class="panel-heading">
-                <h4>Invoice</h4>
-            </div> -->
             <div class="panel-body">
                 <div class="clearfix">
                     <div class="pull-left">
@@ -21,29 +17,28 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-12 col-xl-5">
                         <div class="thumb">
-                            <img src="/Areas/Admin/Images/images/2.jpg" class="thumb-img">
+                            <img src="@about.Image" class="thumb-img">
                         </div>
 
                     </div><!-- end col -->
                     <div class="col-xs-12 col-lg-12 col-xl-7">
                         <div class="pull-xs-left" style="margin-top: 15px">
                             <address>
-                                <strong>Thông tin công ty: Công ty TNHH Kỹ thuật Rigel</strong><br>
-                                Địa chỉ: 59/31 Đường số 9, KP4, Phường Linh Chiểu, Q. Thủ Đức, TPHCM<br>
-                                Email: sales@rigen.com.vn<br>
-                                Hotline: 0916261242 – 0945435403
+                                <span><strong>@about.Name</strong></span><br>
+                                <span>Địa chỉ: @about.Address</span><br>
+                                <span>Email: @about.Email</span><br>
+                                <span>Hotline: @about.Hotline</span>
                                 <hr>
-                                Nhận biết được tầm quan trọng của năng lượng này nay có một ý nghĩa vô cùng lớn trong cuộc sống của chúng ta. Sự thất thoát tài nguyên, năng lượng dần cạn kiệt chính sự cấp thiết đó đã đưa chúng tôi vào cuộc. <br>
-                                <strong>Công ty TNHH Kỹ thuật Rigel </strong>tự hào là đơn vị tiên phong đưa công nghệ tiết kiệm năng lượng đồng hành vào cuộc sống với sản phẩm LedLife là dòng sản phẩm đèn led chiếu sáng cao cấp, với giá thành thấp và mức ổn đinh cao, đây là một giải pháp thông minh và tối ưu với công nghệ cao đã được chứng minh từ những nước tiên tiến trên thế giới, với những giá trị và lợi ích hơn hẳn so với các sản phẩn tiết kiệm điện hiện tại.
+                                <span>@Html.Raw(about.Description)<br></span>
                             </address>
-                            <hr>
-
                         </div>
                     </div><!-- end col -->
                 </div>
                 <!-- end row -->
             </div>
         </div>
+
     </div>
+
 </div>
 <!-- end row -->

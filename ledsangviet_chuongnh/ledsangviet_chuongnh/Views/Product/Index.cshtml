@@ -1,7 +1,11 @@
-﻿
+﻿@model ledsangviet_chuongnh.Models.Product
 @{
-    ViewBag.Title = "Sản phẩm | Led sáng việt";
+    ViewBag.Title = Model.Name;
+    ViewBag.Keyword = Model.MetaKeywords;
+    ViewBag.Description = Model.MetaDescription;
+
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var productRelate = (List<ledsangviet_chuongnh.Models.Product>)ViewBag.productRelate;
 }
 
 <!-- Page-Title -->
@@ -10,24 +14,21 @@
         <div class="card-box">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-xs-12 col-lg-12 col-xl-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <div class="thumb">
-                            <img src="/Assets/images/gallery/2.jpg" class="thumb-img">
+                            <img src="@Model.Image" class="thumb-img" alt="@Model.Name">
                         </div>
                     </div><!-- end col -->
-                    <div class="col-xs-12 col-lg-12 col-xl-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
                         <div class="pull-xs-left" style="margin-top: 15px">
                             <address>
-                                <h4><strong>ĐÈN LED ÂM TRẦN VIỀN BẠC 5W</strong></h4><hr>
-                                <strong>MÃ SẢN PHẨM :</strong> GH-LAT-VB-5W<br>
-                                <strong>GIÁ SẢN PHẨM :</strong> 100,000 VNĐ <br>
-                                <strong>CHIP LED :</strong> EPISTAR - ĐÀI LOAN <br>
-                                <strong>BẢO HÀNH :</strong> 24 tháng <br>
-
-                                Hãy gọi cho chúng tôi để có giá tốt nhất. Mr.Nam 0944 755 800 - 093 6446 383 <br><br>
-
-                                <u>Lưu ý:</u> Ngoài các sản phẩm sử dụng chip led Epistar - Đài Loan bảo hành 02 năm, chúng tôi còn cung cấp các sản phẩm sử dụng chip led của Trung Quốc bảo hành 01 và 02 năm. Quý khách có nhu cầu xin vui lòng liên hệ để được tư vấn một cách tốt nhất.
+                                <strong><h4>@Model.Name</h4></strong><hr>
+                                <strong>MÃ SẢN PHẨM : </strong>@Model.Code<br>
+                                <strong>GIÁ SẢN PHẨM : </strong>@Model.Price<br>
+                                <strong>CHIP LED : </strong>@Model.ChipLed<br>
+                                <strong>BẢO HÀNH : </strong>@Model.Waranty<br>
+                                <span>@Html.Raw(Model.Note)</span>
                             </address>
 
                         </div>
@@ -35,206 +36,73 @@
                 </div>
                 <!-- end row -->
                 <br>
-                <strong>Đèn led âm trần viền bạc 5W</strong> được thiết kế có lớp kính mặt mờ để tránh chói mắt. Bề mặt sản phẩm được phủ sơn tĩnh điện rất mịn đẹp, cấu tạo thân chắc chắn và có tản nhiệt to dày và nguồn chất lượng ổn định để khách hàng yên tâm lựa chọ sử dụng. Đèn có tuổi thọ cao, tiêu thụ điện năng thấp tiết kiệm 80% năng lượng so với đèn sợ đốt thông thường. <br><br>
+                <div style="padding-bottom:5px">@Html.Raw(Model.Description)</div>
+                @*<h4>Các giá trị thông số</h4>
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <th>Thông số</th>
+                                <th>Giá trị</th>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Chip led</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
 
-                Thân thiện với môi trường khi sử dụng. Đèn led âm trần trong quá trình chiếu sáng không sản sinh ra các chất độc hại như cực tím, photpho, lưu huỳnh rất thân thiện với môi trường. Chính vì trong quá trình tạo ra quang năng đèn led downlight  không có sự làm nóng dây tóc như bóng đèn sợi đốt, hay đốt nóng các chất như bóng đèn huỳnh quang mà chỉ đơn giản là tạo ra sự dịch chuyển của các điện tích làm nên ánh sáng trong sạch tinh khiết không nguy hại tới sức khỏe của người sử dụng.
-                Được ứng dụng trong khách sạn, nhà hàng, văn phòng, trung tâm thương mại,…
-
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <th>Thông số</th>
-                            <th>Giá trị</th>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-                <hr>
+                    </table>*@
             </div>
         </div>
-
     </div>
-
 </div>
 <!-- end row -->
-
 <!-- product relative-->
+
+<div class="card-box" style="margin-bottom:0px;">
+    <h4>Sản phẩm liên quan</h4>
+</div>
 <div class="row">
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
+    @foreach (var p in productRelate)
+    {
+        <div class="portfolioContainer">
+            <div class="col-sm-6 col-md-3">
+                <div class="thumb">
+                    <a href="/san-pham/@p.MetaTitle-@p.Id" class="image-popup" title="@p.Name">
+                        <img src="@p.Image" class="thumb-img" alt="work-thumbnail">
+                    </a>
+                    <div class="gal-detail text-xs">
+                        <h4 class="m-t-10"><a href="/san-pham/@p.MetaTitle-@p.Id">@p.Name</a></h4>
+                        <p class="text-muted">
+                            Giá sản phẩm: <strong style="color:green">@p.Price</strong><br>
+                            Chip led: <strong style="color:green">@p.ChipLed</strong><br>
+                            Thời hạn bảo hành: <span style="color:green">@p.Waranty</span><br>
+                            Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolioContainer">
-        <div class="col-sm-6 col-md-3">
-            <div class="thumb">
-                <a href="/Product" class="image-popup" title="Screenshot-1">
-                    <img src="/Assets/images/product/product.png" class="thumb-img" alt="work-thumbnail">
-                </a>
-                <div class="gal-detail text-xs">
-                    <h4 class="m-t-10"><a href="/Product">Đèn đường led 126W</a></h4>
-                    <p class="text-muted">
-                        Giá sản phẩm: <strong>165,000 VNĐ</strong><br>
-                        Chip led: <strong>Epistar</strong> - Đài Loan<br>
-                        Bảo hành: 24 tháng<br>
-                        Hãng sản xuất: <strong>LedLife</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    }
 </div>
 <!-- / product relative-->
 <br>

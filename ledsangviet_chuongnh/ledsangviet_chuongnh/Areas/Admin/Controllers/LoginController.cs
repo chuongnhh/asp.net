@@ -27,6 +27,7 @@ namespace ledsangviet_chuongnh.Areas.Admin.Controllers
             if (Membership.ValidateUser(username, password))
             {
                 FormsAuthentication.SetAuthCookie(username, false);
+                
                 return RedirectToAction("Index", "Home");
             }
             else

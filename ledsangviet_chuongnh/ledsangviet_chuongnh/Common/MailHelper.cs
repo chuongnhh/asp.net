@@ -35,7 +35,9 @@ namespace ledsangviet_chuongnh.Common
             client.Host = smtpHost;
             client.Port = !string.IsNullOrEmpty(smtpPort) ? Convert.ToInt32(smtpPort) : 0;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //client.Timeout = 20000;
             client.Send(message);
+
             return true;
         }
     }

@@ -30,7 +30,7 @@
                                 Hotline: @contact.Hotline
                             </address>
                             <hr>
-                            @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+                            @using (Html.BeginForm("SendMail", "Contact", FormMethod.Post))
                             {
                                 <fieldset class="form-group">
                                     @Html.LabelFor(model => model.Name)
