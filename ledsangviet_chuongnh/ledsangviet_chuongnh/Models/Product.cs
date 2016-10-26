@@ -28,11 +28,11 @@ namespace ledsangviet_chuongnh.Models
         [StringLength(250)]
         public string Name { get; set; }
 
-        [Display(Name = "Giá bán")]
+        [Display(Name = "Giá sản phẩm")]
         [StringLength(100)]
         public string Price { get; set; }
 
-        [Display(Name = "Giảm giá")]
+        [Display(Name = "Giá đã giảm")]
         [StringLength(100)]
         public string Promotion { get; set; }
 

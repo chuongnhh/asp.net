@@ -49,17 +49,17 @@
     </div><!-- end col-->
     <div class="col-xs-12 col-lg-12 col-xl-4">
         <div class="card-box">
-            <h4 class="header-title m-t-0 m-b-20">Tin tức</h4>
+            <h4 class="header-title m-t-0 m-b-20">Tin mới nhất</h4>
             <div class="blog-widget nicescroll" style="max-height: 407px">
                 @foreach (var n in news)
                 {
-                <a href="/tin-tuc/@n.MetaTitle-@n.Id" title="/tin-tuc/@n.MetaTitle-@n.Id">
-                    <div class="blog-item">
-                        <div class="blog-item-img"><img src="@n.Image" class="img" alt="@n.Image"></div>
-                        <p class="blog-item-title">@n.Title.Substring(0, n.Title.Length > 72 ? 70 : n.Title.Length)...</p>
-                        <p class="blog-item-text">@n.Description.Substring(0, n.Description.Length > 100 ? 100 : n.Description.Length)...</p>
-                    </div>
-                </a>
+                    <a href="/tin-tuc/@n.MetaTitle-@n.Id" title="/tin-tuc/@n.MetaTitle-@n.Id">
+                        <div class="blog-item">
+                            <div class="blog-item-img"><img src="@n.Image" class="img" alt="@n.Image"></div>
+                            <p class="blog-item-title">@n.Title.Substring(0, n.Title.Length > 70 ? 70 : n.Title.Length)...</p>
+                            <p class="blog-item-text">@n.Description.Substring(0, n.Description.Length > 100 ? 100 : n.Description.Length)...</p>
+                        </div>
+                    </a>
                 }
             </div>
         </div>
@@ -95,17 +95,30 @@
                         <div class="gal-detail text-xs">
                             <h4 class="m-t-10"><a href="/san-pham/@p.MetaTitle-@p.Id" title="@p.Name">@p.Name</a></h4>
                             <p class="text-muted">
-                                Giá sản phẩm: <strong style="color:green">@p.Price</strong><br>
+                                @{
+                                    if (string.IsNullOrEmpty(p.Promotion) == true)
+                                    {
+                                        <span>Giá sản phẩm: <strong style="color:green">@p.Price</strong></span><br>
+                                    }
+                                    else
+                                    {
+                                        <span>
+                                            Giá sản phẩm: <strong style="color:green">
+                                                <del style="color:darkolivegreen">@p.Price</del><span> - @p.Promotion</span>
+                                            </strong>
+                                        </span><br>
+                                    }
+                                }
                                 Chip led: <strong style="color:green">@p.ChipLed</strong><br>
-                                Thời hạn bảo hành: <span style="color:green">@p.Waranty</span><br>
-                                Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong>
+                                Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong><br>
+                                Thời hạn bảo hành: <span style="color:green">@p.Waranty</span>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        }
+                                    }
     </div>
     <br />
-}
+                                    }
 <br>

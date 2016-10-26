@@ -24,10 +24,21 @@
                         <div class="pull-xs-left" style="margin-top: 15px">
                             <address>
                                 <strong><h4>@Model.Name</h4></strong><hr>
-                                <strong>MÃ SẢN PHẨM : </strong>@Model.Code<br>
-                                <strong>GIÁ SẢN PHẨM : </strong>@Model.Price<br>
-                                <strong>CHIP LED : </strong>@Model.ChipLed<br>
-                                <strong>BẢO HÀNH : </strong>@Model.Waranty<br>
+                                <strong>MÃ SẢN PHẨM : <span style="color:green">@Model.Code</span></strong><br>
+                                @{
+                                    if (string.IsNullOrEmpty(Model.Promotion) == true)
+                                    {
+                                        <strong>GIÁ SẢN PHẨM : </strong><strong style="color:green">@Model.Price</strong><br>
+                                    }
+                                    else
+                                    {
+                                        <strong>
+                                            GIÁ SẢN PHẨM : <span  style="color:green"><del style="color:darkolivegreen">@Model.Price</del> - @Model.Promotion</span>
+                                        </strong><br>
+                                    }
+                                }
+                                <strong>CHIP LED : <span style="color:green">@Model.ChipLed</span></strong><br>
+                                <strong>THỜI GIAN BẢO HÀNH : <span style="color:green">@Model.Waranty</span></strong><br><hr />
                                 <span>@Html.Raw(Model.Note)</span>
                             </address>
 
@@ -37,40 +48,6 @@
                 <!-- end row -->
                 <br>
                 <div style="padding-bottom:5px">@Html.Raw(Model.Description)</div>
-                @*<h4>Các giá trị thông số</h4>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr>
-                            <th>Thông số</th>
-                            <th>Giá trị</th>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Chip led</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-
-                </table>*@
             </div>
         </div>
     </div>
@@ -93,16 +70,30 @@
                     <div class="gal-detail text-xs">
                         <h4 class="m-t-10"><a href="/san-pham/@p.MetaTitle-@p.Id">@p.Name</a></h4>
                         <p class="text-muted">
-                            Giá sản phẩm: <strong style="color:green">@p.Price</strong><br>
+                            @{
+                                if (string.IsNullOrEmpty(p.Promotion) == true)
+                                {
+                                    <span>Giá sản phẩm: <strong style="color:green">@p.Price</strong></span><br>
+                                }
+                                else
+                                {
+                                    <span>
+                                        Giá sản phẩm: <strong style="color:green">
+                                            <del style="color:darkolivegreen">@p.Price</del><span> - @p.Promotion</span>
+                                        </strong>
+                                    </span><br>
+                                }
+                            }
                             Chip led: <strong style="color:green">@p.ChipLed</strong><br>
-                            Thời hạn bảo hành: <span style="color:green">@p.Waranty</span><br>
-                            Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong>
+                            Hãng sản xuất: <strong style="color:green">@p.Manufacturer</strong><br>
+                            Thời hạn bảo hành: <span style="color:green">@p.Waranty</span>
                         </p>
+
                     </div>
                 </div>
             </div>
         </div>
-    }
+                                }
 </div>
 <!-- / product relative-->
 <br>
